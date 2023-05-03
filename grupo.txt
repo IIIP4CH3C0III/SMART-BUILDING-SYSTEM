@@ -1,6 +1,9 @@
 task:
 	> Identifique os 3 elementos do seu grupo de trabalho;
-
+		1211993 - Fábio Pacheco
+		1221635 - Ricardo Cabral
+		1221670 - Maria Canastro
+		
 	> Identifique o tema do trabalho selecionado pelo seu grupo;
 		R: P40 - GESTÃO INTELIGENTE DE EDIFÍCIOS
 			
