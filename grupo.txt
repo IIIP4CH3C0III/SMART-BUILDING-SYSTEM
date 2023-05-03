@@ -1,0 +1,54 @@
+task:
+	> Identifique os 3 elementos do seu grupo de trabalho;
+
+	> Identifique o tema do trabalho selecionado pelo seu grupo;
+		R: P40 - GESTÃO INTELIGENTE DE EDIFÍCIOS
+			
+	> Crie um repositório privado no GitHub para o projeto do grupo com o ficheiro;
+		> Identifique o link para acesso ao repositório;
+			R: https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+			
+		> Clone o repositório do grupo no diretório de trabalho do seu computador;
+			R: git clone https://IIIP4CH3C0III:TOKEN@github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM.git
+			
+		> Verifique que consegue alterar o ficheiro README localmente, fazer o commit local e o push para o repositório remoto (no GitHub).
+			R: conseguimos alterar, e dar push and pull!
+
+	> Submeta no Moodle o ficheiro grupo.txt com as respostas às questões 1a) e 1b).
+
+exerc:
+	1)    Num breve texto a acrescentar ao ficheiro README do repositório, descreva de uma forma genérica quais
+
+		a)    os objetivos da sua aplicação;
+
+			R: Permitir ao encarregado da monitorização do edificio, o total controlo sobre o mesmo, ou seja, tendo a possibilidade de efetuar
+			   a monitorização em tempo real de sensores de temperatura, leitores de cartões, iluminação, água, energia consumida, energia 
+			   criada, receção de imagens de camera, receção de sensores de movimento, ... E ainda dar ao utilizador desta mesma aplicação
+			   a possibilidade de adicionar utilizadores, bem como efetuar a gestão dos mesmos, como também ter a possibilidade de acordo
+			   com os dados obtidos através dos diversos atuadores uma gestão de eventos.
+
+			   -: Fazer todo controlo do edificio;
+			   -: Controlar
+			   		--: Acesso ao espaço fisico ao utilizador bem como as suas permissões (Portas, ID reader, sensores movimento);
+			   		--: Iluminação, reservatório água, sistema de rega, temperatura de cada divisória;
+			   		--: Gestão energética [monitoramento singular e plural];
+			   		--: (facultativo) Gestão de rede [WIFI, ethernet, phone, fax];
+			   		--: (facultativo) Sistema de video-vigilância;
+			   		
+			   -: Criação de Eventos de acordo com os atuadores;
+			   -: Sistema por modulos podendo facilmente alteravel;
+			   -: Gestão de uma base de dados para os utilizadores e outra para os atuadores;
+			   
+			
+		b)    os diferentes tipos de utilizadores da aplicação (mínimo 2 tipos);
+
+			R: Os utilizadores disponíveis na base de dados serão, Adminstrador, Monitorizador, Cliente.
+				 Adminstrador  -> Possibilidade de efetuar qualquer operação;
+
+				 Monitorizador -> Possibilidade de visualizar qualquer operação mas sem possibilidade de efetuar mudanças a menos que tenha
+				 				  autorização do Adminstrador
+
+				 Cliente 	   -> Não é suposto ter qualquer acesso à aplicação, apenas usufruir dos atuadores
+		
+		c)    as funcionalidades que deverá disponibilizar aos vários utilizadores.
+
