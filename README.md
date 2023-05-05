@@ -9,7 +9,7 @@ Seus principais objetivos consistem em monitorar, controlar e automatizar um ou 
 <ul>
   <li>Garantir acesso seguro ao espaço físico dos usuários do edifício, bem como gerenciar suas permissões de entrada;</li>
   <li>Interpretar e enviar sinais de sensores e atuadores para uma resposta necessária, utilizando dados digitais (0,1);</li>
-  <li>Gerenciar efetivamente os recursos do(s) edifício(s), com relatórios instantâneos disponíveis;</li>
+  <li>Gestão efetiva de os recursos do(s) edifício(s), com relatórios instantâneos disponíveis;</li>
   <li>Fornecer uma dashboard intuitiva para que o usuário possa facilmente executar várias funções;</li>
   <li>Integrar o sistema em módulos para permitir alterações fáceis e desejáveis;</li>
   <li>Disponibilizar bases de dados para os usuários e dispositivos.</li>
