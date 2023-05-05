@@ -1,6 +1,6 @@
 # SMART-BUILDING-SYSTEM
 
-<p><h3>Linguagem Portuguesa:</h3></p>
+<p><h3>Introdução</h3>(Versão Portuguesa)</p>
 
 <p>Este projeto será desenvolvido no âmbito da disciplina de DEAPC, do curso de Engenharia de Eletrotécnica e Computadores.<br> 
 Seus principais objetivos consistem em monitorar, controlar e automatizar um ou mais edifícios, por meio de um software baseado na web que disponibilizará todas essas funções.</p>
@@ -43,7 +43,7 @@ Seus principais objetivos consistem em monitorar, controlar e automatizar um ou 
 </ul>
 
 <br><br>
-<p><h3>English Language:</h3></p>
+<p><h3>Introduction</h3>(English Version)</p>
 
 <p>This project will be developed as part of the DEAPC course in Electrical and Computer Engineering.<br> 
   Its main objectives are to monitor, control, and automate one or more buildings through a web-based software that will provide all these functions.</p>
