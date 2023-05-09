@@ -8,6 +8,51 @@ ATORES:
 		<th>Prioridade</th>
 	</tr>
 	<tr>
+		<td>ADM</td>
+		<td>Aceder ao estado das diversas divisões</td>
+		<td>Como <em>Administrador</em> quero aceder ao estado das divisões do edíficio</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ADM</td>
+		<td>Gestão dos atores e das divisões</td>
+		<td>Como <em>Administrador</em> quero gerir as permissões dos outros atores e as divisões a monitorizar</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>ADM</td>
+		<td>Gestão de eventos</td>
+		<td>Como <em>Administrador</em> quero gerir os eventos associados a cada divisão</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>MNT</td>
+		<td>Consulta base de dados</td>
+		<td>Como <em>Monitorizador</em> quero acesso às permissões e eventos associados a cada cliente e dispositivo</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>CLI</td>
+		<td>Consulta do perfil</td>
+		<td>Como <em>Cliente</em> quero acesso às minhas permissões dentro do sistema que estão dispostas num perfil</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
 		<td></td>
 	</tr>
 
