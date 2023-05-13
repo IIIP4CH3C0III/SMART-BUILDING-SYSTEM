@@ -64,7 +64,7 @@
     <td>AD002</td>
     <td> Gerir Eventos </td>
     <td>Como ADMINSTRADOR quero gerir os eventos para poder de acordo com as entradas atribuir as saídas desejadas</td>
-    <td>Medio</td>    
+    <td>Baixo</td>    
   </tr>
   
   <tr>
@@ -177,7 +177,7 @@ The codes used are:
     <td>AD002</td>
     <td>Manage Events</td>
     <td>As ADMINISTRATOR, I want to manage events to assign the desired outputs according to the inputs</td>
-    <td>Medium</td>    
+    <td>Low</td>    
   </tr>
   <tr>
     <td>MN000</td>
