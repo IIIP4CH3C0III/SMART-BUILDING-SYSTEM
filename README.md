@@ -20,7 +20,7 @@ Seus principais objetivos consistem em monitorar, controlar e automatizar um ou 
   <li>A integração do sistema de video-vigilância através do Software.</li>
 </ul><br>
 
-<p><h4>Os utilizadores disponíveis na aplicação serão o Adminstrador, Monitorizador e Cliente.</h4></p>
+<p><h4>Os utilizadores disponíveis na aplicação serão o Adminstrador, Monitor e Cliente.</h4></p>
 <ul>
   <li>Adminstrador: Pode realizar operações de nível máximo, mas é necessário confirmar as mesmas por e-mail.</li>
   <ul>
@@ -29,7 +29,7 @@ Seus principais objetivos consistem em monitorar, controlar e automatizar um ou 
     <li>Gestão de eventos;</li>
   </ul>
    <br>
-  <li>Monitorizador: Pode realizar operações de nível médio, mas é necessário a confirmação de um adminstrador.</li>
+  <li>Monitor: Pode realizar operações de nível médio, mas é necessário a confirmação de um adminstrador.</li>
   <ul>
     <li>Acesso restrito sobre a aplicação;</li>
     <li>Consulta das bases de dados, nomeadamente clientes e dispositivos;</li>
