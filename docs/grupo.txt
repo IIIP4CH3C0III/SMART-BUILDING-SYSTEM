@@ -8,3 +8,11 @@ Tema do projeto/Project theme:
 
 Github link:
 	https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+Páginas:
+	1211993:
+		Formulário, Bases de dados
+	1221635:
+		Dashboard, Login
+	1221670:
+		Logs, Dashboard
