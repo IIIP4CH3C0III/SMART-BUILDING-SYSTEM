@@ -9,10 +9,21 @@ function displayGreeting()
 
 function load_table()
 {
-      // Get the container element for the table
+      //Remover informação antiga, para poder refazer a tabela
+      let removeCONTAINER = document.getElementById("remove");    
+      if(removeCONTAINER != null)
+            removeCONTAINER.remove();
+
+      // Obter o objeto pai
       let rowContainer = document.getElementById("rowContainer");
 
-      // Define the data for the table rows
+      // Criar a tabela
+      let table = document.createElement("div");
+      table.id = "remove"; // Atribuir o id, para futuramente podermos remover
+      table.classList.add("table_db"); //nome da classe
+
+
+      // Raw Data para exprimentar funcionalidades
       const rowData = 
       [
             { id: "0001", name: "John Smith", contact: "123456789", email: "john@example.com", nif: "123456789", bi: "111222333" },
@@ -35,32 +46,40 @@ function load_table()
             { id: "0018", name: "Isabella Taylor", contact: "987321654", email: "isabella@example.com", nif: "987321654", bi: "333444555" },
             { id: "0019", name: "Ethan Wilson", contact: "741852963", email: "ethan@example.com", nif: "741852963", bi: "666777888" },
             { id: "0020", name: "Ava Thompson", contact: "852963741", email: "ava@example.com", nif: "852963741", bi: "000111222" }
-
-            // Add more data objects for additional rows
       ];
 
+      // buscar informação do numero de linhas que pretendemos ver
       let listbox_element = document.getElementById("listbox_bottom");
       let numberChoosed = listbox_element.value;
 
-
-
+      // Definir as váriaveis para os diversos objetos filhos
       let rowText , rowIcons, row, cont=0;
+
+      // Os diferentes identificadores de campos, mudar futuramente
       const fields_id = ["f1","f2","f3","f4","f5","f6"];
 
-      // Loop through the data and create table rows dynamically
+      // Se a quantidade que o utilizador pretender mostrar for superior a quantidade de dados existentes, limitar esses dados aos existentes
+      if(numberChoosed > rowData.length)
+            numberChoosed = rowData.length;
+
+      // Varrer e criar as linhas
       for (let i = 0; i < numberChoosed ; i++) 
       {
+            //Criar linha
             row = document.createElement("div");
             row.classList.add("row");
 
+            //Criar divisoria para texto
             rowText = document.createElement("div");
             rowText.classList.add("row_text");
 
+            //Criar divisoria para icones
             rowIcons = document.createElement("div");
             rowIcons.classList.add("row_icons");
 
-              // Create row fields dynamically based on the data
+            // Prencher campos de acordo com a key -> ex.: "id","nome","..."
             for (let key in rowData[i]) {
+                  //criar divisoria para o campo
                   let rowField = document.createElement("div");
 
                   rowField.setAttribute("id",fields_id[cont]);
@@ -90,8 +109,69 @@ function load_table()
             row.appendChild(rowText);
             row.appendChild(rowIcons);
 
-            rowContainer.appendChild(row);
+            table.appendChild(row);
       }
+
+      rowContainer.appendChild(table);
+}
+
+function remove_table()
+{
+     let rowContainer = document.getElementById("remove");    
+      rowContainer.remove();
+}
+
+function load_form(db)
+{
+      /* Texto superior */
+      let item;
+      if(db == 1)
+            item = "cliente";
+      if(db == 2)
+            item = "dispostivo";
+
+      let info = document.getElementById("textbox_l")
+      info.innerHTML = "Adicionar um " + item;
+
+      /* Formulário*/
+      let formulario = document.getElementById("form");
+      
+      const campos_cliente_pt = ["ID","Nome","Contacto","Email","NIF","BI"];
+      const campos_dispositivo_pt = ["ID","Nome","Serial Number","Estado","Edificio","Andar","Divisão"];
+
+      let length = 0;
+      
+      if(db == 1) //clientes
+            length = campos_cliente_pt.length;
+
+      if(db == 2) //dispostivos
+            length = campos_dispositivo_pt.length;
+       
+      for (let x = 0; x < length ; x++) {
+            let div = document.createElement("form");
+            div.classList.add("content");
+
+            let identificador = document.createElement("div"); 
+            identificador.classList.add("container");
+            identificador.id = "textbox_l";
+
+            if(db == 1)
+                  identificador.innerHTML = campos_cliente_pt[x];
+            if(db == 2)
+                  identificador.innerHTML = campos_dispositivo_pt[x];
+
+            let caixa_texto = document.createElement("input");
+            caixa_texto.classList.add("container");
+            caixa_texto.id = "textbox_full";
+            caixa_texto.placeholder = "Escreva aqui";
+
+            div.appendChild(identificador);
+            div.appendChild(caixa_texto);      
+            formulario.appendChild(div);
+
+      }
+
+
 }
 
 function default_values()
@@ -100,8 +180,8 @@ function default_values()
       let list_box2 = document.getElementById("textbox_r");
       let list_box3 = document.getElementById("listbox_bottom");
 
-
       list_box1.selectedIndex = 0; 
       list_box2.selectedIndex = 0; 
       list_box3.selectedIndex = 0;
 }
+

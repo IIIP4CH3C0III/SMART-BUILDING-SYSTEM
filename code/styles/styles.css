@@ -96,29 +96,48 @@ body
   display: flex;
   justify-content: space-between;
   padding: 0.7%;
-  width: 15%;
   margin-left: 2%;
   margin-right: 2%;
   background-color: var(--clr-forms);
   color: var(--clr-regular);
   justify-content: center;
   border: 1% var(--clr-forms);
+  border-radius: 10px;
 }
 
 .container#textbox_l
 {
+  width: 15%;
   direction: ltr;
 }
-
+ 
 .container#textbox_r
 {
+  width: 15%;
   direction: rtl;
 }
+
+/*
+ * Formato das caixas de texto do formulário
+ */
+
+.container#textbox_full
+{
+    width: 100%;
+    justify-content: start;
+ }
+
+/* Formulário */
+.content_background#form {  }     
+
+ .container:focus
+ { outline: 2px solid var(--clr-header); }
+
 
 .icons_content{ width: 35%; display:flex; }
 .icons_content#ic_l{ justify-content:start; }
 .icons_content#ic_r{ justify-content:end; }
-
+.icon_content{ margin-right: 10%; }
 
 /*
  * Tabela da base de dados
@@ -131,6 +150,7 @@ body
   margin-bottom: 0.25%;
   background-color: var(--clr-forms);
   align-items: center;
+  border-radius: 10px;
 }
 
 
@@ -144,7 +164,8 @@ body
   align-items: center;
 }
 
-.table_db#rowContainer{  }
+.content#rowContainer{  }
+.table_db#add{  }
 
 .row_icons /* Icones de editar e remover */
 {
@@ -170,58 +191,21 @@ body
 
 /* Regulável cada campo */
 
-.row_field 
-{
-  justify-content: center;
-  display: flex;
-}
-
-.row_field#f1
-{
-  width: 15%;
-}
-.row_field#f2
-{
-  width: 20%;
-}
-.row_field#f3
-{
-  width: 15%;
-}
-.row_field#f4
-{
-  width: 20%;
-}
-.row_field#f5
-{
-  width: 15%;
-}
-.row_field#f6
-{
-  width: 15%;
-}
+.row_field  { justify-content: center; display: flex; }
+.row_field#f1 { width: 15%; }
+.row_field#f2 { width: 20%; }
+.row_field#f3 { width: 15%; }
+.row_field#f4 { width: 20%; }
+.row_field#f5 { width: 15%; }
+.row_field#f6 { width: 15%; }
 
 
-/* Filtragem pela quantidade de numeros de amostragem */
-.box_righ_pos
-{
-  width: 5%;
-  margin-right: 2%;
-  padding: 0.5%;
-  background-color: var(--clr-forms);
-  color: var(--clr-regular);
-  justify-content: center;
-  border: 1% var(--clr-forms);
-  direction: rtl;
-}
 
-.box_righ_pos#listbox_bottom{}
+.container#listbox_bottom{  width: 10%; direction:rtl; }
+#listbox_bottom:hover{ background-color: var(--clr-header); }
 
-.box_left_pos
-{
-  width: 95%;
-  padding: 0.5%;
-}
+.box_left_pos { width: 95%; padding: 0.5%; }
+.box_left_pos1 { width: 70%; padding: 0.5%; }
 
 
 /* Apenas para telas grandes, atualmente sem qualquer configuração */
@@ -238,7 +222,7 @@ body
     display: flex;
   }
 
-}
+} 
 
 
 /*
