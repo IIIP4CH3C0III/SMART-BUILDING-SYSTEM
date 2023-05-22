@@ -1,1 +1,264 @@
+:root
+{
+  /* Pallete of colors to windows */
+  --clr-header: hsl(195, 35%, 63%);
+  --clr-forms: hsl(199, 30%, 85%);
+  --clr-background: hsl(0, 0%, 100%);
+
+  /* Pallete of colors to fonts */
+  --clr-regular: hsl(194, 64%, 22%);
+  --clr-semi-bold: hsl(0, 0%, 100%);
+
+  /* Font tpye */
+  --ff-primary: 'Ubuntu', sans-serif;
+
+  --ff-header: var(--ff-primary);
+  --ff-body: var(--ff-primary);
+
+  --fw-header: 400;
+  --fw-body: 150;
+
+  --fs-header: 0.9rem;
+  --fs-body: 0.3rem;
+}
+
+body
+{
+  background-color: var(--clr-background);
+  font-family: var(--ff-header);
+  font-weight: var(--fw-header);
+  font-size: var(--fs-header);
+}
+
+
+/*
+ * TOP BAR 
+ */
+
+.top_bar
+{
+  background-color: var(--clr-header);
+  padding: 1.25% ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+}
+
+.icons
+{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 30%;
+}
+
+.icon{ margin-right: 5%; color: var(--clr-semi-bold); width: 5% ; justify-content: center; display: flex;}
+  
+  .icon#home{  }
+  .icon#db{   }
+  .icon#logs{   }
+  .icon#logout{  }
+  
+
+.icon:hover
+{
+  transition-duration: 0.5s;
+  color: var(--clr-regular);
+}
+
+.logo { margin-left: 1%; color: var(--clr-semi-bold); width: 10%; }
+.logo:hover {  }
+
+.info-header 
+{ display: flex; color: var(--clr-semi-bold); width: 60%; }
+
+
+/*
+ * Conteudo da página
+ */
+
+.content_background
+{
+  background-color: white;
+  color: var(--clr-regular);
+}
+
+.content
+{
+  margin-top: 2%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+
+.container /* Zona superior antes da tabela */
+{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7%;
+  margin-left: 2%;
+  margin-right: 2%;
+  background-color: var(--clr-forms);
+  color: var(--clr-regular);
+  justify-content: center;
+  border: 1% var(--clr-forms);
+  border-radius: 10px;
+}
+
+.container#textbox_l
+{
+  width: 15%;
+  direction: ltr;
+}
+ 
+.container#textbox_r
+{
+  width: 15%;
+  direction: rtl;
+}
+
+/*
+ * Formato das caixas de texto do formulário
+ */
+
+.container#textbox_full
+{
+    width: 100%;
+    justify-content: start;
+ }
+
+/* Formulário */
+.content_background#form {  }     
+
+ .container:focus
+ { outline: 2px solid var(--clr-header); }
+
+
+.icons_content{ width: 35%; display:flex; }
+.icons_content#ic_l{ justify-content:start; }
+.icons_content#ic_r{ justify-content:end; }
+.icon_content{ margin-right: 10%; }
+
+/*
+ * Tabela da base de dados
+ */
+.table_db
+{
+  width: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 0.25%;
+  background-color: var(--clr-forms);
+  align-items: center;
+  border-radius: 10px;
+}
+
+
+
+.row /* Cada linha */
+{
+  background-color: var(--clr-background);
+  padding: 0.5%;
+  margin: 0.7%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content#rowContainer{  }
+.table_db#add{  }
+
+.row_icons /* Icones de editar e remover */
+{
+  width: 10%;
+  justify-content: space-between;
+  align-items: center; 
+  display: flex;
+}
+
+.row_icon /* Icone em especifico */
+{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.row_text /* O texto presente na linha */
+{
+  width: 90%;
+  display: flex;
+}
+
+/* Regulável cada campo */
+
+.row_field  { justify-content: center; display: flex; }
+.row_field#f1 { width: 15%; }
+.row_field#f2 { width: 20%; }
+.row_field#f3 { width: 15%; }
+.row_field#f4 { width: 20%; }
+.row_field#f5 { width: 15%; }
+.row_field#f6 { width: 15%; }
+
+
+
+.container#listbox_bottom{  width: 10%; direction:rtl; }
+#listbox_bottom:hover{ background-color: var(--clr-header); }
+
+.box_left_pos { width: 95%; padding: 0.5%; }
+.box_left_pos1 { width: 70%; padding: 0.5%; }
+
+
+/* Apenas para telas grandes, atualmente sem qualquer configuração */
+
+@media screen and (min-width:768px)
+{
+  .row
+  {
+    display: none;
+  }
+
+  .row:nth-child(-n+51)
+  {
+    display: flex;
+  }
+
+} 
+
+
+/*
+  Feito apenas para dar reset em tudo.
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+a
+{  text-decoration: none; }
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+#root, #__next {
+  isolation: isolate;
+}
 
