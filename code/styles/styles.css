@@ -83,6 +83,54 @@ body
   color: var(--clr-regular);
 }
 
+/*
+ * background da pag login
+ */
+.login
+{
+  background-color: var(--clr-header);
+  font-family: var(--ff-header);
+  font-weight: var(--fw-header);
+  font-size: var(--fs-header);
+}
+
+.login_block
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 50%;
+  flex-direction: column;
+}
+
+.login_logo 
+{ 
+  margin-left: 1%;
+  color: var(--clr-semi-bold);
+  width: 10%; 
+}
+
+.login_logo:hover {  }
+
+.container#login_bottom
+{  
+  width: 170px;
+  direction:rtl;
+}
+
+#login_bottom:hover{ background-color: var(--clr-background); }
+
+.login_text
+{
+  font-size: x-small;
+  font-family: var(--ff-primary);
+  color:white ;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
 .content
 {
   margin-top: 2%;
@@ -111,6 +159,12 @@ body
   direction: ltr;
 }
  
+.container#textbox_r
+{
+  width: 15%;
+  direction: rtl;
+}
+
 .container#textbox_r
 {
   width: 15%;
