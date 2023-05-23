@@ -18,7 +18,7 @@
 		<title> SmartBuilingSystem </title>
 	</head>
 
-	<body onload="displayGreeting(); load_table(); default_values();">
+	<body onload="displayGreeting(); load_table(1); default_values();">
 		<header class="top_bar">
 			<div class="logo">
 				LOGO
@@ -30,10 +30,10 @@
 
 			<nav class="icons">
 				
-				<a class="icon" id="home" href="#"> <i class="fa-solid fa-house fa-lg"></i> </a>
-				<a class="icon" id="db" href="#"> <i class="fa-solid fa-database fa-lg"></i> </a>
-				<a class="icon" id="logs" href="#"> <i class="fa-solid fa-circle-info fa-lg"></i> </i> </a>
-				<a class="icon" id="logout" href="#"> <i class="fa-solid fa-right-from-bracket fa-lg"></i> </a>
+				<a class="icon" id="home" href="home.html"> <i class="fa-solid fa-house fa-lg"></i> </a>
+				<a class="icon" id="db" href="db.html"> <i class="fa-solid fa-database fa-lg"></i> </a>
+				<a class="icon" id="logs" href="logs.html"> <i class="fa-solid fa-circle-info fa-lg"></i> </i> </a>
+				<a class="icon" id="logout" href="index.html"> <i class="fa-solid fa-right-from-bracket fa-lg"></i> </a>
 				
 			</nav>
 		</header>
@@ -47,10 +47,10 @@
 				</select>
 
 				<div class="icons_content" id="ic_l">
-					<a href="#" onclick="load_table();"> <i class="fa-solid fa-rotate-right fa-lg"></i> </a>
+					<a href="#" onclick="load_table(1);"> <i class="fa-solid fa-rotate-right fa-lg"></i> </a>
 				</div>
 				<div class="icons_content" id="ic_r">
-					<a class ="icon_content" href="forms.html"> <i class="fa-solid fa-plus fa-lg"></i> </a>
+					<a class ="icon_content" id="add_db">  </a>
 					<a href="#"> <i class="fa-solid fa-filter fa-lg"></i> </a>
 				</div>
 

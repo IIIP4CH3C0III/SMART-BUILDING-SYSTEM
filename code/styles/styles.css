@@ -127,9 +127,6 @@ body
     justify-content: start;
  }
 
-/* Formulário */
-.content_background#form {  }     
-
  .container:focus
  { outline: 2px solid var(--clr-header); }
 
@@ -182,6 +179,7 @@ body
   justify-content: center;
 }
 
+.icon_content#add_db {  }
 
 .row_text /* O texto presente na linha */
 {
@@ -222,7 +220,10 @@ body
     display: flex;
   }
 
-} 
+}
+
+/* Formulário */
+.content#form {  }      
 
 
 /*

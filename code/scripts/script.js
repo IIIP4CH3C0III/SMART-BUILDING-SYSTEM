@@ -1,4 +1,39 @@
 
+/* Resetar valor */
+
+function default_values()
+{
+      let list_box1 = document.getElementById("textbox_l");
+      let list_box2 = document.getElementById("textbox_r");
+      let list_box3 = document.getElementById("listbox_bottom");
+
+      list_box1.selectedIndex = 0; 
+      list_box2.selectedIndex = 0; 
+      list_box3.selectedIndex = 0;     
+}
+
+
+
+
+
+/* Funções especiais */
+
+function getElementByValue(tag,value)
+{
+      let elements = document.getElementsByTagName("input");
+
+      for ( let x = 0 ; x  < elements.length ; x++ )
+            if ( elements[x].value == value )
+                  return elements[x];
+
+      return null;
+}
+
+
+
+
+/* Database página */
+
 function displayGreeting() 
 {
       let name = "Adminstrador", permission = "adminstrador";
@@ -7,8 +42,11 @@ function displayGreeting()
 }
 
 
-function load_table()
+function load_table(level)
 {
+      //Adicionar o butão de entradas dependendo do level
+      load_entry_button(level);
+
       //Remover informação antiga, para poder refazer a tabela
       let removeCONTAINER = document.getElementById("remove");    
       if(removeCONTAINER != null)
@@ -117,9 +155,28 @@ function load_table()
 
 function remove_table()
 {
-     let rowContainer = document.getElementById("remove");    
+      let rowContainer = document.getElementById("remove");    
       rowContainer.remove();
 }
+
+function load_entry_button(level)
+{
+      //Adicionar o butão de adicionar entradas
+      if(level == 1)//admin
+      {
+            let add_icon = document.getElementById("add_db");
+            add_icon.href = "forms.html";
+            add_icon.innerHTML = '<i class="fa-solid fa-plus fa-lg"></i>';  //<i class="fa-solid fa-plus fa-lg"></i> 
+      }
+
+}
+
+
+
+
+
+
+/* Formulário página */
 
 function load_form(db)
 {
@@ -133,7 +190,7 @@ function load_form(db)
       let info = document.getElementById("textbox_l")
       info.innerHTML = "Adicionar um " + item;
 
-      /* Formulário*/
+      /* Formulário maker */
       let formulario = document.getElementById("form");
       
       const campos_cliente_pt = ["ID","Nome","Contacto","Email","NIF","BI"];
@@ -151,7 +208,7 @@ function load_form(db)
             let div = document.createElement("form");
             div.classList.add("content");
 
-            let identificador = document.createElement("div"); 
+            let identificador = document.createElement("label"); 
             identificador.classList.add("container");
             identificador.id = "textbox_l";
 
@@ -165,23 +222,71 @@ function load_form(db)
             caixa_texto.id = "textbox_full";
             caixa_texto.placeholder = "Escreva aqui";
 
+            if(db == 1)
+                  caixa_texto.name = campos_cliente_pt[x];
+            if(db == 2)
+                  caixa_texto.name = campos_dispositivo_pt[x];
+
             div.appendChild(identificador);
             div.appendChild(caixa_texto);      
             formulario.appendChild(div);
-
       }
 
+      /* Butões de submit e cancelar */
 
+      let row = document.createElement("div");
+      row.classList.add("content");
+
+      let helper = document.createElement("div");
+      helper.classList.add("box_left_pos1");
+
+      row.appendChild(helper);
+
+      
+      let buttons = ["Cancelar","Submeter"];
+      
+      for ( let x = 0 ; x < buttons.length ; x++)
+      {
+            let button = document.createElement("input");
+            button.classList.add("container");
+            button.id = "listbox_bottom";
+            button.type = "button";
+            button.value = buttons[x];
+
+            row.appendChild(button);
+      }
+      
+      formulario.appendChild(row);
+
+      let row2 = document.createElement("div");
+      row2.classList.add("content");
+
+      formulario.appendChild(row2);
 }
 
-function default_values()
+function event_forms()
 {
-      let list_box1 = document.getElementById("textbox_l");
-      let list_box2 = document.getElementById("textbox_r");
-      let list_box3 = document.getElementById("listbox_bottom");
+      let cancel_button = getElementByValue("input", "Cancelar");
+      let submit_button = getElementByValue("input", "Submeter");
 
-      list_box1.selectedIndex = 0; 
-      list_box2.selectedIndex = 0; 
-      list_box3.selectedIndex = 0;
+      cancel_button.addEventListener("click",cancel_submission);
+      submit_button.addEventListener("click",submit_submission);
 }
 
+function cancel_submission()
+{
+      if(confirm("Tem a certeza que pretende cancelar o formulário?"))
+            window.location.href = "db.html";
+
+      return 0;
+}
+
+function submit_submission()
+{
+      if(confirm("Tem a certeza que pretende submeter o formulário?"))
+      {       
+            alert("submit");
+            window.location.href = "db.html";
+      }
+      return 0;
+}
