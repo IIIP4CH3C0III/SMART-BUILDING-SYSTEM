@@ -258,7 +258,67 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
+
+/*Dashboard */
+
+.grid-container{
+	background-color:white;
+	padding:25px;
+	grid-area:main;
+	
+	display:grid; /*também é um grid container*/
+	grid-template-columns: 1fr 0.5fr 1fr;
+	grid-template-rows: 200px 200px 200px;
+	grid-template-areas:
+	"c1 c2 c3"
+	"c4 c4 c4"
+	"c5 c5 c5";
+	gap: 15px;
+	
+}
+
+.card{
+	background-color:rgb(207,222,229);
+	border-radius: 5px;
+	
+}
+.card:nth-child(1){
+	grid-area:c1;
+}
+.card:nth-child(2){
+	grid-area:c2;
+}
+.card:nth-child(3){
+	grid-area:c3;
+}
+.card:nth-child(4){
+	grid-area:c4;
+}
+.card:nth-child(5){
+	grid-area:c5 ;
+}
+
+.text{
+	color:rgb(20,74,90);
+	margin:5px;
+}
+
+/*Logs*/
+
+row2_field  { justify-content: center; display: flex; }
+.row2_field#f1 { width: 10%; }
+.row2_field#f2 { width: 10%; }
+.row2_field#f3 { width: 10%; }
+.row2_field#f4 { width: 10%; }
+.row2_field#f5 { width: 10%; }
+.row2_field#f6 { width: 20%; }
+.row2_field#f7 { width: 10%; }
+.row2_field#f8 { width: 10%; }
+.row2_field#f9 { width: 10%; }
+
+
 #root, #__next {
   isolation: isolate;
 }
+
 
