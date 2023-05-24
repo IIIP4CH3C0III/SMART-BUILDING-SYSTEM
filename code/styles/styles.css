@@ -38,7 +38,7 @@ body
 .top_bar
 {
   background-color: var(--clr-header);
-  padding: 1.25% ;
+  padding: 0.25% ;
   display: flex;
   align-items: center;
   justify-content: space-between;  
@@ -66,8 +66,25 @@ body
   color: var(--clr-regular);
 }
 
-.logo { margin-left: 1%; color: var(--clr-semi-bold); width: 10%; }
-.logo:hover {  }
+.logo {
+  margin-left: 1%;
+  color: var(--clr-semi-bold); 
+  width: 6%; 
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-direction: reverse;
+
+}
+.logo:hover { animation-name: rotation_logo ;}
+
+@keyframes rotation_logo {
+  0% {transform: rotateY(0deg);}
+  25% {transform: rotateY(0deg);}
+  50% {transform: rotateY(360deg);}
+  75% {transform: rotateY(0deg);}
+  100% {transform: rotateY(360deg);}
+}
+
 
 .info-header 
 { display: flex; color: var(--clr-semi-bold); width: 60%; }
@@ -85,8 +102,9 @@ body
 
 
 /*
- * background da pag login
+ * Login Page styles
  */
+
 .login
 {
   background-color: var(--clr-header);
@@ -107,9 +125,8 @@ body
 
 .login_logo 
 { 
-  margin-left: 1%;
-  color: var(--clr-semi-bold);
-  width: 10%; 
+  color: var(--clr-semi-bold); 
+  width: 70%;
 }
 
 .login_logo:hover {  }

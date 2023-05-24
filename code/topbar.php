@@ -5,7 +5,7 @@
 		</head>	
 		<header class="top_bar">
 			<div class="logo">
-				LOGO
+				<img src="images/logo.svg" alt="logo">
 			</div>
 				
 			<div class="info-header">

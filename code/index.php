@@ -10,10 +10,8 @@
 	<body class="login" onload="default_values(1);">
 		<div  class="login_block" id="zoom">
 			<div class="login_logo">
-				LOGO
+				<img src="images/logo.svg" alt="logo">
 			</div>
-
-			<div class="vertical_spacer"></div>
 
 			<form>
 				<div class="content">
