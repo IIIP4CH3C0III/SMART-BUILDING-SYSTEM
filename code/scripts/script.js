@@ -1,3 +1,37 @@
+/* Resetar valor */
+
+function default_values()
+{
+      let list_box1 = document.getElementById("textbox_l");
+      let list_box2 = document.getElementById("textbox_r");
+      let list_box3 = document.getElementById("listbox_bottom");
+
+      list_box1.selectedIndex = 0; 
+      list_box2.selectedIndex = 0; 
+      list_box3.selectedIndex = 0;     
+}
+
+
+
+
+
+/* Funções especiais */
+
+function getElementByValue(tag,value)
+{
+      let elements = document.getElementsByTagName("input");
+
+      for ( let x = 0 ; x  < elements.length ; x++ )
+            if ( elements[x].value == value )
+                  return elements[x];
+
+      return null;
+}
+
+
+
+
+/* Database página */
 
 function displayGreeting() 
 {
@@ -7,8 +41,11 @@ function displayGreeting()
 }
 
 
-function load_table()
+function load_table(level)
 {
+      //Adicionar o butão de entradas dependendo do level
+      load_entry_button(level);
+
       //Remover informação antiga, para poder refazer a tabela
       let removeCONTAINER = document.getElementById("remove");    
       if(removeCONTAINER != null)
@@ -28,7 +65,7 @@ function load_table()
       [
             { id: "0001", name: "John Smith", contact: "123456789", email: "john@example.com", nif: "123456789", bi: "111222333" },
             { id: "0002", name: "Jane Doe", contact: "987654321", email: "jane@example.com", nif: "987654321", bi: "444555666" },
-            { id: "0003", name: "Fábio Pacheco", contact: "968122311", email: "pacheco.castro.fabio@example.com", nif: "987654321", bi: "999111999" },
+            { id: "0003", name: "Fábio Pacheco", contact: "968122311", email: "pacheco. castro.fabio@example.com", nif: "987654321", bi: "999111999" },
             { id: "0004", name: "Emily Johnson", contact: "456789123", email: "emily@example.com", nif: "456789123", bi: "777888999" },
             { id: "0005", name: "Michael Brown", contact: "789123456", email: "michael@example.com", nif: "789123456", bi: "222333444" },
             { id: "0006", name: "Sophia Wilson", contact: "321654987", email: "sophia@example.com", nif: "321654987", bi: "555666777" },
@@ -117,9 +154,28 @@ function load_table()
 
 function remove_table()
 {
-     let rowContainer = document.getElementById("remove");    
+      let rowContainer = document.getElementById("remove");    
       rowContainer.remove();
 }
+
+function load_entry_button(level)
+{
+      //Adicionar o butão de adicionar entradas
+      if(level == 1)//admin
+      {
+            let add_icon = document.getElementById("add_db");
+            add_icon.href = "forms.html";
+            add_icon.innerHTML = '<i class="fa-solid fa-plus fa-lg"></i>';  //<i class="fa-solid fa-plus fa-lg"></i> 
+      }
+
+}
+
+
+
+
+
+
+/* Formulário página */
 
 function load_form(db)
 {
@@ -133,7 +189,7 @@ function load_form(db)
       let info = document.getElementById("textbox_l")
       info.innerHTML = "Adicionar um " + item;
 
-      /* Formulário*/
+      /* Formulário maker */
       let formulario = document.getElementById("form");
       
       const campos_cliente_pt = ["ID","Nome","Contacto","Email","NIF","BI"];
@@ -151,7 +207,7 @@ function load_form(db)
             let div = document.createElement("form");
             div.classList.add("content");
 
-            let identificador = document.createElement("div"); 
+            let identificador = document.createElement("label"); 
             identificador.classList.add("container");
             identificador.id = "textbox_l";
 
@@ -165,54 +221,104 @@ function load_form(db)
             caixa_texto.id = "textbox_full";
             caixa_texto.placeholder = "Escreva aqui";
 
+            if(db == 1)
+                  caixa_texto.name = campos_cliente_pt[x];
+            if(db == 2)
+                  caixa_texto.name = campos_dispositivo_pt[x];
+
             div.appendChild(identificador);
             div.appendChild(caixa_texto);      
             formulario.appendChild(div);
-
       }
 
+      /* Butões de submit e cancelar */
 
+      let row = document.createElement("div");
+      row.classList.add("content");
+
+      let helper = document.createElement("div");
+      helper.classList.add("box_left_pos1");
+
+      row.appendChild(helper);
+
+      
+      let buttons = ["Cancelar","Submeter"];
+      
+      for ( let x = 0 ; x < buttons.length ; x++)
+      {
+            let button = document.createElement("input");
+            button.classList.add("container");
+            button.id = "listbox_bottom";
+            button.type = "button";
+            button.value = buttons[x];
+
+            row.appendChild(button);
+      }
+      
+      formulario.appendChild(row);
+
+      let row2 = document.createElement("div");
+      row2.classList.add("content");
+
+      formulario.appendChild(row2);
 }
 
-function default_values()
+function event_forms()
 {
-      let list_box1 = document.getElementById("textbox_l");
-      let list_box2 = document.getElementById("textbox_r");
-      let list_box3 = document.getElementById("listbox_bottom");
+      let cancel_button = getElementByValue("input", "Cancelar");
+      let submit_button = getElementByValue("input", "Submeter");
 
-      list_box1.selectedIndex = 0; 
-      list_box2.selectedIndex = 0; 
-      list_box3.selectedIndex = 0;
+      cancel_button.addEventListener("click",cancel_submission);
+      submit_button.addEventListener("click",submit_submission);
 }
+
+function cancel_submission()
+{
+      if(confirm("Tem a certeza que pretende cancelar o formulário?"))
+            window.location.href = "db.html";
+
+      return 0;
+}
+
+function submit_submission()
+{
+      if(confirm("Tem a certeza que pretende submeter o formulário?"))
+      {       
+            alert("submit");
+            window.location.href = "db.html";
+      }
+      return 0;
+}
+
+
+
+
+
+
 
 
 /* scripts para os logs*/
 
 function load_table2() 
 {
-	//Remover informação antiga, para poder refazer a tabela
+
       let removeCONTAINER = document.getElementById("remove");    
       if(removeCONTAINER != null)
             removeCONTAINER.remove();
 
-      // Obter o objeto pai
-      let rowContainer = document.getElementById("rowContainer");
 
-      // Criar a tabela
-      let table = document.createElement("div");
-      table.id = "remove"; // Atribuir o id, para futuramente podermos remover
-      table.classList.add("table_db"); //nome da classe
-
+	let rowContainer = document.getElementById("rowContainer");
+	let table = document.createElement("div");
+     table.id = "remove"; // Atribuir o id, para futuramente podermos remover
+     table.classList.add("table_db"); //nome da classe
 	 
-	 
-const logrowData  =
-[
+const rowData = [
 	{id:"001", edifício:"1", andar:"1", divisão:"1", estado:"0", descrição:"Janeiro Fernandes", hora:"23:55", data:"13-05-2023", grau:"3"},
 	{id:"002", edifício:"2", andar:"3", divisão:"2", estado:"1", descrição:"Carlos Santos", hora:"08:30", data:"19-04-2023", grau:"2"},
 	{id:"003", edifício:"3", andar:"2", divisão:"4", estado:"0", descrição:"Maria Silva", hora:"14:15", data:"07-06-2023", grau:"1"},
 	{id:"004", edifício:"1", andar:"4", divisão:"3", estado:"1", descrição:"Pedro Costa", hora:"10:45", data:"30-05-2023", grau:"3"},
 	{id:"005", edifício:"2", andar:"1", divisão:"2", estado:"1", descrição:"Ana Rodrigues", hora:"16:20", data:"21-05-2023", grau:"2"},
-	{id:"006", edifício:"3", andar:"3", divisão:"1", estado:"0", descrição:"Ricardo Santos", hora:"09:10", data:"10-04-2023", grau:"1"},
+	{id:"006", edifício:"3", andar:"3", divisão:"1", estado:"0", descrição:"Ricardo Santos", hora:"09:10", data:"10-04-2023", grau:"1"},	
 	{id:"007", edifício:"1", andar:"2", divisão:"3", estado:"0", descrição:"Lúcia Pereira", hora:"13:40", data:"15-06-2023", grau:"3"},
 	{id:"008", edifício:"2", andar:"4", divisão:"4", estado:"1", descrição:"João Mendes", hora:"11:30", data:"05-05-2023", grau:"2"},
 	{id:"009", edifício:"3", andar:"1", divisão:"1", estado:"0", descrição:"Sara Oliveira", hora:"18:05", data:"27-04-2023", grau:"1"},
@@ -229,7 +335,7 @@ const logrowData  =
 	{id:"021", edifício:"3", andar:"1", divisão:"3", estado:"0", descrição:"Isabel Fernandes", hora:"19:05", data:"26-04-2023", grau:"1"},
 	{id:"022", edifício:"1", andar:"3", divisão:"2", estado:"1", descrição:"Daniel Almeida", hora:"08:50", data:"13-05-2023", grau:"3"},
 	{id:"023", edifício:"2", andar:"2", divisão:"4", estado:"0", descrição:"Inês Sousa", hora:"15:30", data:"06-06-2023", grau:"2"},
-	{id:"024", edifício:"3", andar:"4", divisão:"1", estado:"1", descrição:"Luís Mendes", hora:"12:20", data:"29-05-2023", grau:"1"}
+	{id:"024", edifício:"3", andar:"4", divisão:"1", estado:"1", descrição:"Luís Mendes", hora:"12:20", data:"29-05-2023", grau:"1"},
 	]
 	
 // buscar informação do numero de linhas que pretendemos ver
@@ -238,13 +344,14 @@ const logrowData  =
 
       // Definir as váriaveis para os diversos objetos filhos
       let rowText , rowIcons, row, cont=0;
+	
+// Se a quantidade que o utilizador pretender mostrar for superior a quantidade de dados existentes, limitar esses dados aos existentes
+      if(numberChoosed > rowData.length)
+            numberChoosed = rowData.length;
 
-      // Os diferentes identificadores de campos, mudar futuramente
+
       const fields_id = ["f1","f2","f3","f4","f5","f6","f7","f8","f9"];
 
-      // Se a quantidade que o utilizador pretender mostrar for superior a quantidade de dados existentes, limitar esses dados aos existentes
-      if(numberChoosed > logrowData.length)
-            numberChoosed = logrowData.length;
 
       // Varrer e criar as linhas
       for (let i = 0; i < numberChoosed ; i++) 
@@ -262,7 +369,7 @@ const logrowData  =
             rowIcons.classList.add("row_icons");
 
             // Prencher campos de acordo com a key -> ex.: "id","nome","..."
-            for (let key in logrowData[i]) {
+            for (let key in rowData[i]) {
                   //criar divisoria para o campo
                   let rowField = document.createElement("div");
 
@@ -270,17 +377,28 @@ const logrowData  =
                   cont++;
 
                   rowField.classList.add("row_field");
-                  rowField.textContent = logrowData[i][key];
+                  rowField.textContent = rowData[i][key];
                   rowText.appendChild(rowField);
             }
 
             cont = 0;
 
-            
+            // Create icons for each row
+            let editIcon = document.createElement("a");
+            editIcon.classList.add("row_icon");
+            editIcon.href = "#";
+            editIcon.innerHTML = '<i class="fa-solid fa-pen fa-lg"></i>';
+            rowIcons.appendChild(editIcon);
+
+            let deleteIcon = document.createElement("a");
+            deleteIcon.classList.add("row_icon");
+            deleteIcon.href = "#";
+            deleteIcon.innerHTML = '<i class="fa-solid fa-trash-can fa-lg"></i>';
+            rowIcons.appendChild(deleteIcon);
 
             // Append row text and icons to the rowContainer
             row.appendChild(rowText);
-            
+            row.appendChild(rowIcons);
 
             table.appendChild(row);
       }
