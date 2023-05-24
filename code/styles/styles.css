@@ -164,6 +164,14 @@ body
   display: flex;
 }
 
+.content_res
+{
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  margin: 1%;
+}
+
 .container /* Zona superior antes da tabela */
 {
   display: flex;
@@ -286,6 +294,17 @@ body
 
 
 
+.row_field#l1 { width: 10%; }
+.row_field#l2 { width: 15%; }
+.row_field#l3 { width: 5%; }
+.row_field#l4 { width: 15%; }
+.row_field#l5 { width: 5%; }
+.row_field#l6 { width: 30%; }
+.row_field#l7 { width: 5%; }
+.row_field#l8 { width: 20%; }
+.row_field#l9 { width: 5%; }
+
+
 .container#listbox_bottom{  width: 10%; direction:rtl; }
 #listbox_bottom:hover{ background-color: var(--clr-header); }
 
@@ -358,7 +377,7 @@ p, h1, h2, h3, h4, h5, h6 {
 	
 	display:grid; /*também é um grid container*/
 	grid-template-columns: 1fr 0.5fr 1fr;
-	grid-template-rows: 200px 200px 200px;
+	grid-template-rows: 200px 200px 250px;
 	grid-template-areas:
 	"c1 c2 c3"
 	"c4 c4 c4"
