@@ -1,4 +1,3 @@
-
 /* Resetar valor */
 
 function default_values()
@@ -66,7 +65,7 @@ function load_table(level)
       [
             { id: "0001", name: "John Smith", contact: "123456789", email: "john@example.com", nif: "123456789", bi: "111222333" },
             { id: "0002", name: "Jane Doe", contact: "987654321", email: "jane@example.com", nif: "987654321", bi: "444555666" },
-            { id: "0003", name: "Fábio Pacheco", contact: "968122311", email: "pacheco.castro.fabio@example.com", nif: "987654321", bi: "999111999" },
+            { id: "0003", name: "Fábio Pacheco", contact: "968122311", email: "pacheco. castro.fabio@example.com", nif: "987654321", bi: "999111999" },
             { id: "0004", name: "Emily Johnson", contact: "456789123", email: "emily@example.com", nif: "456789123", bi: "777888999" },
             { id: "0005", name: "Michael Brown", contact: "789123456", email: "michael@example.com", nif: "789123456", bi: "222333444" },
             { id: "0006", name: "Sophia Wilson", contact: "321654987", email: "sophia@example.com", nif: "321654987", bi: "555666777" },
