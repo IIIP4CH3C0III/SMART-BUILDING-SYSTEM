@@ -73,15 +73,16 @@ body
 { display: flex; color: var(--clr-semi-bold); width: 60%; }
 
 
+
+
+
 /*
- * Conteudo da página
+ * Spacers
  */
 
-.content_background
-{
-  background-color: white;
-  color: var(--clr-regular);
-}
+.vertical_spacer
+{ padding: 3%; }
+
 
 /*
  * background da pag login
@@ -102,7 +103,6 @@ body
   margin: auto;
   justify-content: center;
   flex-direction: column;
-  padding: 10%;
 }
 
 .login_logo 
@@ -117,19 +117,43 @@ body
 .container#login_bottom
 {  
   width: 170px;
-  direction:rtl;
+  padding: 3%;	
+  direction: rtl;
 }
 
 #login_bottom:hover{ background-color: var(--clr-background); }
 
 .login_text
 {
-  font-size: x-small;
+  font-size: small;
   font-family: var(--ff-primary);
   color:white ;
   display: flex;
   flex-direction: column;
   align-content: center;
+  text-align: center;
+}
+
+#textbox_full_center:hover
+{
+  transition-duration: 0.5s;
+  background-color: white;
+}
+
+#textbox_full_center:focus
+{   background-color: white;  }
+
+
+
+
+/*
+ * Conteudo da página
+ */
+
+.content_background
+{
+  background-color: white;
+  color: var(--clr-regular);
 }
 
 .content
@@ -181,6 +205,14 @@ body
     width: 100%;
     justify-content: start;
  }
+
+.container#textbox_full_center
+{
+    width: 100%;
+	text-align: center;
+	padding: 3%;
+	margin: 2%;
+}
 
  .container:focus
  { outline: 2px solid var(--clr-header); }
@@ -276,6 +308,8 @@ body
   }
 
 }
+
+
 
 /* Formulário */
 .content#form {  }      

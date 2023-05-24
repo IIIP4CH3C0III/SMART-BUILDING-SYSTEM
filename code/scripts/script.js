@@ -11,7 +11,11 @@ function default_values()
       list_box3.selectedIndex = 0;     
 }
 
-
+function zoom(page)
+{
+	document.body.style.transformOrigin = "center";
+	document.body.style.transform = "scale(1.5)";
+}
 
 
 

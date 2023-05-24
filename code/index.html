@@ -11,34 +11,40 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 		<title> SmartBuilingSystem </title>
 	</head>
 
-	<body class="login">
-		<div  class="login_block">
+	<body class="login" onload="zoom(1);">
+		<div  class="login_block" id="zoom">
 			<div class="login_logo">
 				LOGO
 			</div>
-			<div >
+
+			<div class="vertical_spacer"></div>
+
+			<div>
 				<form class="content">
-					<div  class="container" id="username_input">
-						<input class="container" id="textbox_full" placeholder="Username">
-					</div>
+					<input class="container" type="text" id="textbox_full_center" placeholder="Nome de utilizador">
 				</form>
 				<form class="content">
-					<div  class="container" id="password_input">
-						<input class="container" id="textbox_full" placeholder="Pass">
-					</div>
+					<input class="container" type="password" id="textbox_full_center" placeholder="Palavra-Chave">
 				</form>
 			</div>
+
+			<div class="vertical_spacer"></div>
+
 			<div class="content">
-				<a class="container" id="login_bottom" href="#">Login</a>
+				<button class="container" id="login_bottom" value="submit">LOGIN</button>
 			</div>
+
+			<div class="vertical_spacer"></div>
+
 			<div class="login_text">
 				<p>Esqueceu a password? Problemas com o Login?</p> 
 				<p>Obtenha informacões contactando o administrador.</p>
+				<p>email : admin@example.com</p>
 			</div>
 			
 		</div>
