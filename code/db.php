@@ -3,40 +3,12 @@
 <html lang="pt">
 
 	<head>
-		<meta charset="UTF-8" />
-		<meta name= "viewport" content=" width=device-width initial-scale=1.0">
-
-		<link rel = "stylesheet" type="text/css" href="styles/styles.css" />
-		<script src="scripts/script.js"></script>
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+		<?php include 'header.php'; ?>
 		<title> SmartBuilingSystem </title>
 	</head>
 
-	<body onload="displayGreeting(); load_table(1); default_values();">
-		<header class="top_bar">
-			<div class="logo">
-				LOGO
-			</div>
-				
-			<div class="info-header">
-				<p id="greeting"></p>
-			</div>	
-
-			<nav class="icons">
-				
-				<a class="icon" id="home" href="home.html"> <i class="fa-solid fa-house fa-lg"></i> </a>
-				<a class="icon" id="db" href="db.html"> <i class="fa-solid fa-database fa-lg"></i> </a>
-				<a class="icon" id="logs" href="logs.html"> <i class="fa-solid fa-circle-info fa-lg"></i> </i> </a>
-				<a class="icon" id="logout" href="index.html"> <i class="fa-solid fa-right-from-bracket fa-lg"></i> </a>
-				
-			</nav>
-		</header>
+	<body onload="default_values(3);">
+		<?php include 'topbar.php'; ?>
 
 		<div class="content_background">
 			<div class="content">
@@ -49,8 +21,8 @@
 				<div class="icons_content" id="ic_l">
 					<a href="#" onclick="load_table(1);"> <i class="fa-solid fa-rotate-right fa-lg"></i> </a>
 				</div>
-				<div class="icons_content" id="ic_r">
-					<a class ="icon_content" id="add_db">  </a>
+				<div class="icons_content" id="ic_r" >
+					<a type="button" class ="icon_content" id="add_db">  </a>
 					<a href="#"> <i class="fa-solid fa-filter fa-lg"></i> </a>
 				</div>
 

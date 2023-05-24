@@ -1,21 +1,74 @@
 /* Resetar valor */
 
-function default_values()
+function default_values(page)
 {
-      let list_box1 = document.getElementById("textbox_l");
-      let list_box2 = document.getElementById("textbox_r");
-      let list_box3 = document.getElementById("listbox_bottom");
+      let user_name,user_level;
 
-      list_box1.selectedIndex = 0; 
-      list_box2.selectedIndex = 0; 
-      list_box3.selectedIndex = 0;     
+      if(page != 1)
+      {
+            //user test information
+            user_name = "Userx"; 
+            user_level = 1;
+      }
+            
+      switch(page)
+      {
+            //login page
+            case 1: 
+            {
+                  let textbox_user = document.getElementById("textbox_full_center");
+                  textbox_user.value = null;
+                  zoom(page,1.25);
+                  event_login();
+                  break;
+            }
+
+            //dashboardo ou home page
+            case 2:
+            {
+                  displayGreeting(user_name,user_level); 
+                  load_resume_logs(); 
+                  break;
+            } 
+
+            //database
+            case 3:
+            {
+
+                  let list_box1 = document.getElementById("textbox_l");
+                  let list_box2 = document.getElementById("textbox_r");
+                  let list_box3 = document.getElementById("listbox_bottom");
+
+                  list_box1.selectedIndex = 0; 
+                  list_box2.selectedIndex = 0; 
+                  list_box3.selectedIndex = 0;       
+
+                  displayGreeting(user_name,user_level); 
+                  load_table(user_level); 
+                  event_db();
+                  break;
+            }
+
+            case 4:
+            {
+                  displayGreeting(user_name,user_level); 
+                  load_table2();
+                  break; 
+            }
+            case 5:
+            {
+                  displayGreeting(user_name,user_level);
+                  load_form(localStorage.getItem('db_selection')); 
+                  event_forms();
+            }
+
+      }
 }
 
-function zoom(page)
-{
-	document.body.style.transformOrigin = "center";
-	document.body.style.transform = "scale(1.5)";
-}
+
+/* State functions */
+
+//Implementar a verificação se o user tem internet ligada, para evitar problemas.
 
 
 
@@ -23,7 +76,7 @@ function zoom(page)
 
 function getElementByValue(tag,value)
 {
-      let elements = document.getElementsByTagName("input");
+      let elements = document.getElementsByTagName(tag);
 
       for ( let x = 0 ; x  < elements.length ; x++ )
             if ( elements[x].value == value )
@@ -32,18 +85,48 @@ function getElementByValue(tag,value)
       return null;
 }
 
-
-
-
-/* Database página */
-
-function displayGreeting() 
+function getElementByPlaceholder(tag,placeholder)
 {
-      let name = "Adminstrador", permission = "adminstrador";
+      let elements = document.getElementsByTagName(tag);
+
+      for ( let x = 0 ; x  < elements.length ; x++ )
+            if ( elements[x].placeholder == placeholder )
+                  return elements[x];
+
+      return null;
+}
+
+
+function zoom(page,zoom_num)
+{
+      let value = "scale(" + zoom_num + ")";
+      document.body.style.transformOrigin = "center";
+      document.body.style.transform = value;
+}
+
+
+
+
+/* Top Bar information */
+
+function displayGreeting(name,level) 
+{
+      let permission;
+      if(level)
+            permission = "adminstrador";
+      if(level == 2)
+            permission = "monitor";
+      if(level == 3)
+            permission = "cliente";
+
+
       let greeting = "Bem vindo " + name + ", permissões de " + permission;
       document.getElementById("greeting").innerHTML = greeting;
 }
 
+
+
+/* Database página */
 
 function load_table(level)
 {
@@ -69,7 +152,7 @@ function load_table(level)
       [
             { id: "0001", name: "John Smith", contact: "123456789", email: "john@example.com", nif: "123456789", bi: "111222333" },
             { id: "0002", name: "Jane Doe", contact: "987654321", email: "jane@example.com", nif: "987654321", bi: "444555666" },
-            { id: "0003", name: "Fábio Pacheco", contact: "968122311", email: "pacheco. castro.fabio@example.com", nif: "987654321", bi: "999111999" },
+            { id: "0003", name: "Fábio Pacheco", contact: "968122311", email: "pacheco.castro.fabio@example.com", nif: "987654321", bi: "999111999" },
             { id: "0004", name: "Emily Johnson", contact: "456789123", email: "emily@example.com", nif: "456789123", bi: "777888999" },
             { id: "0005", name: "Michael Brown", contact: "789123456", email: "michael@example.com", nif: "789123456", bi: "222333444" },
             { id: "0006", name: "Sophia Wilson", contact: "321654987", email: "sophia@example.com", nif: "321654987", bi: "555666777" },
@@ -168,11 +251,24 @@ function load_entry_button(level)
       if(level == 1)//admin
       {
             let add_icon = document.getElementById("add_db");
-            add_icon.href = "forms.html";
-            add_icon.innerHTML = '<i class="fa-solid fa-plus fa-lg"></i>';  //<i class="fa-solid fa-plus fa-lg"></i> 
+            add_icon.innerHTML = '<i class="fa-solid fa-plus fa-lg"></i>';  //<i class="fa-solid fa-plus fa-lg"></i>
       }
-
 }
+
+function event_db()
+{
+      let add_button = document.getElementById("add_db");
+      add_button.addEventListener("click",select_db);
+}
+
+function select_db()
+{
+      let option_db = document.getElementById("textbox_l");
+      localStorage.setItem('db_selection',option_db.value);
+      window.location.href = "forms.php";
+}
+
+
 
 
 
@@ -279,7 +375,7 @@ function event_forms()
 function cancel_submission()
 {
       if(confirm("Tem a certeza que pretende cancelar o formulário?"))
-            window.location.href = "db.html";
+            window.location.href = "db.php";
 
       return 0;
 }
@@ -289,9 +385,41 @@ function submit_submission()
       if(confirm("Tem a certeza que pretende submeter o formulário?"))
       {       
             alert("submit");
-            window.location.href = "db.html";
+            window.location.href = "db.php";
       }
       return 0;
+}
+
+
+
+
+
+/*  Login Page */ 
+
+
+//TODO
+
+
+function event_login()
+{
+      let submit_button = getElementByValue("button","Submit");
+      submit_button.addEventListener("click",check_form);
+}
+
+function check_form()
+{
+      let e_username = getElementByPlaceholder("input","Nome de utilizador");
+      let username = e_username.value;
+
+      let e_password = getElementByPlaceholder("input","Palavra-Chave");
+      let password = e_password.value;
+
+      if(username == "admin" && password == "password")
+            window.location.href = "home.php";
+
+      alert("Utilizador ou palavra-passe errados.");
+      e_username.value = null;
+      e_password.value = null;
 }
 
 
@@ -301,7 +429,8 @@ function submit_submission()
 
 
 
-/* scripts para os logs*/
+
+/* Página de Logs*/
 
 function load_table2() 
 {
