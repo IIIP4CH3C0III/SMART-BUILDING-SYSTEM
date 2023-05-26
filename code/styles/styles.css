@@ -299,6 +299,9 @@ body
   display: flex;
 }
 
+.row_text#full
+{ width: 100% }
+
 /* Regulável cada campo */
 
 .row_field  { justify-content: center; display: flex; }
