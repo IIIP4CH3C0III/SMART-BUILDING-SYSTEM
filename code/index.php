@@ -25,7 +25,7 @@
 			<div class="vertical_spacer"></div>
 
 			<div class="content">
-				<button class="container" id="login_bottom" value="Submit">LOGIN</button>
+				<button class="container" id="login_bottom" value="Submit">ENTRAR</button>
 			</div>
 
 			<div class="vertical_spacer"></div>

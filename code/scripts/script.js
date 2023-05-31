@@ -19,7 +19,7 @@ function default_values(page)
                   let textbox_user = document.getElementById("textbox_full_center");
                   textbox_user.value = null;
                   zoom(page,1.25);
-                  event_login();
+                  event_login(0);
                   break;
             }
 
@@ -104,6 +104,11 @@ function zoom(page,zoom_num)
       document.body.style.transform = value;
 }
 
+
+function hasSpecialCharacters(str) {
+  var regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+  return regex.test(str);
+}
 
 
 
@@ -408,22 +413,49 @@ function event_login()
 
 function check_form()
 {
+      let flag = false;
       let e_username = getElementByPlaceholder("input","Nome de utilizador");
       let username = e_username.value;
+
+      if(hasSpecialCharacters(username) || username=="")
+      {
+            //mudar cor para vermelho clarinho
+            e_username.style.border = "1px solid hsl(11, 52%, 61%)";
+            flag = true;
+      }
+
 
       let e_password = getElementByPlaceholder("input","Palavra-Chave");
       let password = e_password.value;
 
+      if(password == "")
+      {
+            //mudar cor para vermelho clarinho
+            e_password.style.border = "1px solid hsl(11, 52%, 61%)";
+            flag = true;
+      }
+
+      if (flag==true)
+      {
+            localStorage.setItem('error_color',1);
+
+            return null;
+      }
+
       if(username == "admin" && password == "password")
+      {
+            //cookie <- guardar a cookie do user, localstorage, confirmar antes de entrar em cada pagina se a cookie funciona 
+            localStorage.setItem('error_color',0);
             window.location.href = "home.php";
+      }
+
+      //adicionar innerHTML identificando erro no formulário ou user/password errado
+      //verificar password errada
 
       alert("Utilizador ou palavra-passe errados.");
       e_username.value = null;
       e_password.value = null;
 }
-
-
-
 
 
 
@@ -452,7 +484,7 @@ function load_table2()
       	{id:"004", edifício:"1", andar:"4", divisão:"3", estado:"1", descrição:"Pedro Costa", hora:"10:45", data:"30-05-2023", grau:"3"},
       	{id:"005", edifício:"2", andar:"1", divisão:"2", estado:"1", descrição:"Ana Rodrigues", hora:"16:20", data:"21-05-2023", grau:"2"},
       	{id:"006", edifício:"3", andar:"3", divisão:"1", estado:"0", descrição:"Ricardo Santos", hora:"09:10", data:"10-04-2023", grau:"1"},	
-      	{id:"007", edifício:"1", andar:"2", divisão:"3", estado:"0", descrição:"Lúcia Pereira", hora:"13:40", data:"15-06-2023", grau:"3"},
+      	{id:"007", edifício:"1", andar:"2", divisão    :"3", estado:"0", descrição:"Lúcia Pereira", hora:"13:40", data:"15-06-2023", grau:"3"},
       	{id:"008", edifício:"2", andar:"4", divisão:"4", estado:"1", descrição:"João Mendes", hora:"11:30", data:"05-05-2023", grau:"2"},
       	{id:"009", edifício:"3", andar:"1", divisão:"1", estado:"0", descrição:"Sara Oliveira", hora:"18:05", data:"27-04-2023", grau:"1"},
       	{id:"010", edifício:"1", andar:"3", divisão:"2", estado:"1", descrição:"Miguel Alves", hora:"07:50", data:"14-05-2023", grau:"3"},

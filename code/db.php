@@ -13,7 +13,7 @@
 		<div class="content_background">
 			<div class="content">
 				<select class="container" id="textbox_l">
-					<option value="" selected disabled>Listar Bases de dados</option>
+					<option value="1" selected disabled>Listar Bases de dados</option>
 					<option value="1"> Clientes </option>
 					<option value="2"> Dispositivos </option>
 				</select>

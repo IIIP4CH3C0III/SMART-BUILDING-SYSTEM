@@ -4,6 +4,7 @@
   --clr-header: hsl(195, 35%, 63%);
   --clr-forms: hsl(199, 30%, 85%);
   --clr-background: hsl(0, 0%, 100%);
+  --clr-error: hsl(11, 45%, 77%);
 
   /* Pallete of colors to fonts */
   --clr-regular: hsl(194, 64%, 22%);
