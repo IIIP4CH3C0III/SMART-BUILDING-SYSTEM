@@ -314,15 +314,6 @@ body
 
 
 
-.row_field#l1 { width: 10%; }
-.row_field#l2 { width: 15%; }
-.row_field#l3 { width: 5%; }
-.row_field#l4 { width: 15%; }
-.row_field#l5 { width: 5%; }
-.row_field#l6 { width: 30%; }
-.row_field#l7 { width: 5%; }
-.row_field#l8 { width: 20%; }
-.row_field#l9 { width: 5%; }
 
 
 .container#listbox_bottom{  width: 10%; direction:rtl; }
@@ -436,14 +427,14 @@ p, h1, h2, h3, h4, h5, h6 {
 
 row2_field  { justify-content: center; display: flex; }
 .row2_field#f1 { width: 10%; }
-.row2_field#f2 { width: 10%; }
-.row2_field#f3 { width: 10%; }
-.row2_field#f4 { width: 10%; }
-.row2_field#f5 { width: 10%; }
-.row2_field#f6 { width: 20%; }
-.row2_field#f7 { width: 10%; }
-.row2_field#f8 { width: 10%; }
-.row2_field#f9 { width: 10%; }
+.row2_field#f2 { width: 15%; }
+.row2_field#f3 { width: 5%; }
+.row2_field#f4 { width: 15%; }
+.row2_field#f5 { width: 5%; }
+.row2_field#f6 { width: 30%; }
+.row2_field#f7 { width: 5%; }
+.row2_field#f8 { width: 20%; }
+.row2_field#f9 { width: 5%; }
 
 
 #root, #__next {
