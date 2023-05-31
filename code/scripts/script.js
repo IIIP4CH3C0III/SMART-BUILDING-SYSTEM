@@ -32,7 +32,7 @@ function default_values(page)
             case 2:
             {
                   displayGreeting(user_name,user_level); 
-                  load_table(user_level)
+                  load_table(user_level, page);
                   break;
             } 
 
@@ -49,7 +49,7 @@ function default_values(page)
                   list_box3.selectedIndex = 0;       
 
                   displayGreeting(user_name,user_level); 
-                  load_table(user_level); 
+                  load_table(user_level, page); 
                   event_db();
                   break;
             }
@@ -57,7 +57,7 @@ function default_values(page)
             case 4:
             {
                   displayGreeting(user_name,user_level); 
-                  load_table(user_level)
+                  load_table(user_level, page);
                   break; 
             }
             case 5:
@@ -133,10 +133,10 @@ function displayGreeting(name,level)
 
 /* Database página */
 
-function load_table(level)
+function load_table(level, page)
 {
       //Adicionar o butão de entradas dependendo do level
-      load_entry_button(level);
+      if(page==3) load_entry_button(level);
 
       //Remover informação antiga, para poder refazer a tabela
       let removeCONTAINER = document.getElementById("remove");    
@@ -155,7 +155,7 @@ function load_table(level)
       // Raw Data para exprimentar funcionalidades
       const rowData = JSON.parse(JSON/dados.json,)
 
-      const rowlogData = 
+      const logData = 
       [
             {id:"001", edifício:"1", andar:"1", divisão:"1", estado:"0", descrição:"Janeiro Fernandes", hora:"23:55", data:"13-05-2023", grau:"3"},
             {id:"002", edifício:"2", andar:"3", divisão:"2", estado:"1", descrição:"Carlos Santos", hora:"08:30", data:"19-04-2023", grau:"2"},
@@ -183,8 +183,19 @@ function load_table(level)
       ];
 
       // buscar informação do numero de linhas que pretendemos ver
-      let listbox_element = document.getElementById("listbox_bottom");
-      let numberChoosed = listbox_element.value;
+      let numberChoosed;
+      if(page != 2){ 
+            let listbox_element = document.getElementById("listbox_bottom");
+            numberChoosed = listbox_element.value;
+      }else
+            numberChoosed = 3; 
+
+      let data;
+      if (page === 3) {
+            data = rowData;
+      } else if (page === 4 || page === 2) {
+            data = logData;
+      }
 
       // Definir as váriaveis para os diversos objetos filhos
       let rowText , rowIcons, row, cont=0;
@@ -193,8 +204,8 @@ function load_table(level)
       const fields_id = ["f1","f2","f3","f4","f5","f6","f7","f8","f9"];
 
       // Se a quantidade que o utilizador pretender mostrar for superior a quantidade de dados existentes, limitar esses dados aos existentes
-      if(numberChoosed > rowData.length)
-            numberChoosed = rowData.length;
+      if(numberChoosed > data.length)
+            numberChoosed = data.length;
 
       // Varrer e criar as linhas
       for (let i = 0; i < numberChoosed ; i++) 
@@ -206,28 +217,39 @@ function load_table(level)
             //Criar divisoria para texto
             rowText = document.createElement("div");
             rowText.classList.add("row_text");
+            rowText.id = "full";
             
             // Prencher campos de acordo com a key -> ex.: "id","nome","..."
-            for (let key in rowData[i]) {
-                  //criar divisoria para o campo
-                  let rowField = document.createElement("div");
+            if (level == 1 && page == 3) {
+                  for (let key in data[i]) {
+                        //criar divisoria para o campo
+                        let rowField = document.createElement("div");
 
-                  rowField.setAttribute("id",fields_id[cont]);
-                  cont++;
+                        rowField.setAttribute("id",fields_id[cont]);
+                        cont++;
 
-                  rowField.classList.add("row_field");
-                  if (level == 1) {
-                        rowField.textContent = rowData[i][key];
+                        rowField.classList.add("row_field");            
+                        rowField.textContent = data[i][key];
+                        rowText.appendChild(rowField);
                   }
-                  else{
-                        rowField.textContent = rowlogData[i][key];
+            } else {
+                  for (let key in data[i]) {
+                        //criar divisoria para o campo
+                        let rowField = document.createElement("div");
+
+                        rowField.setAttribute("id",fields_id[cont]);
+                        cont++;
+
+                        rowField.classList.add("row2_field");
+                        rowField.textContent = data[i][key];            
+                        rowText.appendChild(rowField);
                   }
-                  rowText.appendChild(rowField);
             }
+
 
             cont = 0;
 
-            if (level == 1) {
+            if (level == 1 && page == 3) {
                   //Criar divisoria para icones
                   rowIcons = document.createElement("div");
                   rowIcons.classList.add("row_icons");
@@ -249,8 +271,9 @@ function load_table(level)
 
             // Append row text and icons to the rowContainer
             row.appendChild(rowText);
-
-
+            if (rowIcons) {
+                  row.appendChild(rowIcons);
+            }
             table.appendChild(row);
       }
 
