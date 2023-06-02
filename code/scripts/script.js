@@ -9,12 +9,15 @@ function default_values(page)
             user_name = "Userx"; 
             user_level = 1;
 			//load the JSON file 
-			const filePath = 'JSON/dados.json';
-			const jsonData = fs.readFileSync(filePath, 'utf-8');
+			//const filePath = 'JSON/dados.json';
+			//const jsonData = fs.readFileSync(filePath, 'utf-8');
 			
 			//parse the JSON data 
-			const data = JSON.parse(jsonData);
+			//const data = JSON.parse(jsonData);
       }
+
+      localStorage.setItem('page',page);
+      localStorage.setItem('level',user_level);
 
       switch(page)
       {
@@ -24,7 +27,7 @@ function default_values(page)
                   let textbox_user = document.getElementById("textbox_full_center");
                   textbox_user.value = null;
                   zoom(page,1.25);
-                  event_login(0);
+                  event_login();
                   break;
             }
 
@@ -77,6 +80,7 @@ function default_values(page)
 
 
 
+
 /* Funções especiais */
 
 function getElementByValue(tag,value)
@@ -116,7 +120,6 @@ function hasSpecialCharacters(str) {
 }
 
 
-
 /* Top Bar information */
 
 function displayGreeting(name,level) 
@@ -134,6 +137,16 @@ function displayGreeting(name,level)
       document.getElementById("greeting").innerHTML = greeting;
 }
 
+
+
+
+//General buttons
+
+function event_listner_shared()
+{
+      let reload_button = document.getElementById("reload_button");
+      reload_button.addEventListener("click",load_table(localStorage.getItem('level'),localStorage.getItem('page')));
+}
 
 
 /* Database página */
@@ -157,8 +170,31 @@ function load_table(level, page)
       table.classList.add("table_db"); //nome da classe
 
 
-      // Raw Data para exprimentar funcionalidades
-      const rowData = JSON.parse(JSON/dados.json,)
+      //Raw Data para exprimentar funcionalidades NAO APAGAR ESTED DADOS APENAS COMENTAR!!!
+      
+      const rowData = 
+      [
+            {id:"001", name:"John Doe", contact:"+1234567890", email:"johndoe@example.com", NIF:"123456789", BI:"987654321", last_logout:"23:55 01-01-2023", level:"1"},
+            {id:"002", name:"Jane Smith", contact:"+0987654321", email:"janesmith@example.com", NIF:"987654321", BI:"123456789", last_logout:"22:30 01-01-2023", level:"2"},
+            {id:"003", name:"David Johnson", contact:"+1111111111", email:"davidjohnson@example.com", NIF:"111111111", BI:"222222222", last_logout:"20:15 01-01-2023", level:"3"},
+            {id:"004", name:"Emily Wilson", contact:"+2222222222", email:"emilywilson@example.com", NIF:"222222222", BI:"333333333", last_logout:"18:45 01-01-2023", level:"1"},
+            {id:"005", name:"Michael Brown", contact:"+3333333333", email:"michaelbrown@example.com", NIF:"333333333", BI:"444444444", last_logout:"17:20 01-01-2023", level:"2"},
+            {id:"006", name:"Sarah Taylor", contact:"+4444444444", email:"sarahtaylor@example.com", NIF:"444444444", BI:"555555555", last_logout:"15:55 01-01-2023", level:"3"},
+            {id:"007", name:"Christopher Davis", contact:"+5555555555", email:"christopherdavis@example.com", NIF:"555555555", BI:"666666666", last_logout:"14:30 01-01-2023", level:"1"},
+            {id:"008", name:"Olivia Martinez", contact:"+6666666666", email:"oliviamartinez@example.com", NIF:"666666666", BI:"777777777", last_logout:"13:05 01-01-2023", level:"2"},
+            {id:"009", name:"Daniel Anderson", contact:"+7777777777", email:"danielanderson@example.com", NIF:"777777777", BI:"888888888", last_logout:"11:40 01-01-2023", level:"3"},
+            {id:"010", name:"Sophia Thomas", contact:"+8888888888", email:"sophiathomas@example.com", NIF:"888888888", BI:"999999999", last_logout:"10:15 01-01-2023", level:"1"},
+            {id:"011", name:"Matthew Clark", contact:"+9999999999", email:"matthewclark@example.com", NIF:"999999999", BI:"000000000", last_logout:"08:50 01-01-2023", level:"2"},
+            {id:"012", name:"Isabella Rodriguez", contact:"+1231231231", email:"isabellarodriguez@example.com", NIF:"123123123", BI:"456456456", last_logout:"07:25 01-01-2023", level:"3"},
+            {id:"013", name:"James Lee", contact:"+2342342342", email:"jameslee@example.com", NIF:"234234234", BI:"567567567", last_logout:"05:00 01-01-2023", level:"1"},
+            {id:"014", name:"Mia Turner", contact:"+3453453453", email:"miaturner@example.com", NIF:"345345345", BI:"678678678", last_logout:"03:35 01-01-2023", level:"2"},
+            {id:"015", name:"Benjamin Harris", contact:"+4564564564", email:"benjaminharris@example.com", NIF:"456456456", BI:"789789789", last_logout:"02:10 01-01-2023", level:"3"},
+            {id:"016", name:"Ava Martin", contact:"+5675675675", email:"avamartin@example.com", NIF:"567567567", BI:"890890890", last_logout:"00:45 01-01-2023", level:"1"},
+            {id:"017", name:"Joseph Thompson", contact:"+6786786786", email:"josephthompson@example.com", NIF:"678678678", BI:"901901901", last_logout:"23:20 31-12-2022", level:"2"},
+            {id:"018", name:"Charlotte Garcia", contact:"+7897897897", email:"charlottegarcia@example.com", NIF:"789789789", BI:"012012012", last_logout:"21:55 31-12-2022", level:"3"},
+            {id:"019", name:"Henry Moore", contact:"+8908908908", email:"henrymoore@example.com", NIF:"890890890", BI:"123123123", last_logout:"20:30 31-12-2022", level:"1"},
+            {id:"020", name:"Amelia Allen", contact:"+9019019019", email:"ameliaallen@example.com", NIF:"901901901", BI:"234234234", last_logout:"19:05 31-12-2022", level:"2"}
+      ];
 
       const logData = 
       [
@@ -175,6 +211,7 @@ function load_table(level, page)
             {id:"011", edifício:"2", andar:"2", divisão:"4", estado:"0", descrição:"Inês Rodrigues", hora:"15:20", data:"08-06-2023", grau:"2"},
             {id:"012", edifício:"3", andar:"4", divisão:"3", estado:"1", descrição:"Tiago Sousa", hora:"12:10", data:"31-05-2023", grau:"1"},
             {id:"013", edifício:"1", andar:"1", divisão:"2", estado:"1", descrição:"Cláudia Silva", hora:"17:45", data:"22-05-2023", grau:"3"},
+            {id:"014", edifício:"1", andar:"1", divisão:"2", estado:"1", descrição:"Cláudia Silva", hora:"17:55", data:"22-05-2023", grau:"3"},
             {id:"015", edifício:"3", andar:"2", divisão:"3", estado:"0", descrição:"Ana Oliveira", hora:"09:30", data:"18-06-2023", grau:"2"},
             {id:"016", edifício:"1", andar:"4", divisão:"1", estado:"1", descrição:"Rui Martins", hora:"14:55", data:"29-05-2023", grau:"3"},
             {id:"017", edifício:"2", andar:"1", divisão:"3", estado:"1", descrição:"Carolina Pereira", hora:"11:20", data:"20-05-2023", grau:"2"},
@@ -195,17 +232,17 @@ function load_table(level, page)
       }else
             numberChoosed = 3; 
 
+      //variavél que irá conter os dados
       let data;
-      if (page === 3) {
+      if (page == 3) 
             data = rowData;
-      } else if (page === 4 || page === 2) {
+      if (page == 2 || page == 4) 
             data = logData;
-      }
 
       // Definir as váriaveis para os diversos objetos filhos
       let rowText , rowIcons, row, cont=0;
 
-      // Os diferentes identificadores de campos, mudar futuramente
+      // Os diferentes identificadores de campos, nesta possibilidade contentdo a capacidade máxima.
       const fields_id = ["f1","f2","f3","f4","f5","f6","f7","f8","f9"];
 
       // Se a quantidade que o utilizador pretender mostrar for superior a quantidade de dados existentes, limitar esses dados aos existentes
@@ -222,10 +259,11 @@ function load_table(level, page)
             //Criar divisoria para texto
             rowText = document.createElement("div");
             rowText.classList.add("row_text");
-            rowText.id = "full";
+            
+            if(page!=3) rowText.id = "full";
             
             // Prencher campos de acordo com a key -> ex.: "id","nome","..."
-            if (level == 1 && page == 3) {
+            if (page == 3) {
                   for (let key in data[i]) {
                         //criar divisoria para o campo
                         let rowField = document.createElement("div");
@@ -236,6 +274,10 @@ function load_table(level, page)
                         rowField.classList.add("row_field");            
                         rowField.textContent = data[i][key];
                         rowText.appendChild(rowField);
+
+                        //quantos campos pretende ver em ordem
+                        if(cont == 6)
+                              break;
                   }
             } else {
                   for (let key in data[i]) {
@@ -248,6 +290,30 @@ function load_table(level, page)
                         rowField.classList.add("row2_field");
                         rowField.textContent = data[i][key];            
                         rowText.appendChild(rowField);
+
+                        //quantos campos pretende ver em ordem
+                        if(cont == 9)
+                        {     
+                              //mudar a cor dos campos em que tem nivel de gravidade
+                              switch(data[i][key])
+                              {
+                                    case '2':
+                                    {
+                                          row.style.backgroundColor = "var(--clr-row-warning)";
+                                          row.style.color = "black";
+                                          break;
+                                    }
+                                    case '3':
+                                    {
+                                          row.style.backgroundColor = "var(--clr-row-danger)";
+                                          row.style.color = "black";
+                                          break;
+                                    }
+
+                              }
+                              break;
+                        }
+
                   }
             }
 
@@ -478,25 +544,31 @@ function check_form()
 
       if (flag==true)
       {
-            localStorage.setItem('error_color',1);
-
+            let element_error_message = document.getElementById("warning_message");
+            element_error_message.innerHTML = "Existem campos não preenchindos ou com caracteres especiais";
             return null;
       }
 
       if(username == "admin" && password == "password")
       {
             //cookie <- guardar a cookie do user, localstorage, confirmar antes de entrar em cada pagina se a cookie funciona 
-            localStorage.setItem('error_color',0);
             window.location.href = "home.php";
+            return null;
       }
 
-      //adicionar innerHTML identificando erro no formulário ou user/password errado
-      //verificar password errada
+      let element_error_message = document.getElementById("warning_message");
+      element_error_message.innerHTML = "Utilizador ou palavra-passe errados.";
 
-      alert("Utilizador ou palavra-passe errados.");
       e_username.value = null;
       e_password.value = null;
+      return null;
 }
+
+
+
+
+
+
 
 // funções JSON
 

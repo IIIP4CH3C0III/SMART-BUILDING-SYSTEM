@@ -4,7 +4,11 @@
   --clr-header: hsl(195, 35%, 63%);
   --clr-forms: hsl(199, 30%, 85%);
   --clr-background: hsl(0, 0%, 100%);
-  --clr-error: hsl(11, 45%, 77%);
+  --clr-error: hsl(0, 76%, 38%);
+
+  --clr-row-warning: hsl(58, 100%, 60%); 
+  --clr-row-danger: hsl(0, 76%, 62%);
+
 
   /* Pallete of colors to fonts */
   --clr-regular: hsl(194, 64%, 22%);
@@ -152,6 +156,13 @@ body
   text-align: center;
 }
 
+.login_warnings
+{
+  font-size: x-small;
+  color: var(--clr-error);
+  text-align: center;  
+}
+
 #textbox_full_center:hover
 {
   transition-duration: 0.5s;
@@ -272,6 +283,7 @@ body
   margin: 0.7%;
   justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
 }
 
 .content#rowContainer{  }
@@ -298,6 +310,7 @@ body
 {
   width: 90%;
   display: flex;
+  text-align: center;
 }
 
 .row_text#full

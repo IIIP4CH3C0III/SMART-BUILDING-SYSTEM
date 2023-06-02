@@ -28,6 +28,12 @@
 				<button class="container" id="login_bottom" value="Submit">ENTRAR</button>
 			</div>
 
+			<div class="content">
+				<div class="login_warnings" id="warning_message"> 
+				</div>								
+			</div>
+				
+
 			<div class="vertical_spacer"></div>
 
 			<div class="login_text">

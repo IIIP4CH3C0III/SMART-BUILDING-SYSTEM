@@ -1,0 +1,22 @@
+[
+{"id":"001", "name":"John Doe", "contact":"+1234567890", "email":"johndoe@example.com", "NIF":"123456789", "BI":"987654321", "last_logout":"23:55 01-01-2023", "level":"1"},
+{"id":"002", "name":"Jane Smith", "contact":"+0987654321", "email":"janesmith@example.com", "NIF":"987654321", "BI":"123456789", "last_logout":"22:30 01-01-2023", "level":"2"},
+{"id":"003", "name":"David Johnson", "contact":"+1111111111", "email":"davidjohnson@example.com", "NIF":"111111111", "BI":"222222222", "last_logout":"20:15 01-01-2023", "level":"3"},
+{"id":"004", "name":"Emily Wilson", "contact":"+2222222222", "email":"emilywilson@example.com", "NIF":"222222222", "BI":"333333333", "last_logout":"18:45 01-01-2023", "level":"1"},
+{"id":"005", "name":"Michael Brown", "contact":"+3333333333", "email":"michaelbrown@example.com", "NIF":"333333333", "BI":"444444444", "last_logout":"17:20 01-01-2023", "level":"2"},
+{"id":"006", "name":"Sarah Taylor", "contact":"+4444444444", "email":"sarahtaylor@example.com", "NIF":"444444444", "BI":"555555555", "last_logout":"15:55 01-01-2023", "level":"3"},
+{"id":"007", "name":"Christopher Davis", "contact":"+5555555555", "email":"christopherdavis@example.com", "NIF":"555555555", "BI":"666666666", "last_logout":"14:30 01-01-2023", "level":"1"},
+{"id":"008", "name":"Olivia Martinez", "contact":"+6666666666", "email":"oliviamartinez@example.com", "NIF":"666666666", "BI":"777777777", "last_logout":"13:05 01-01-2023", "level":"2"},
+{"id":"009", "name":"Daniel Anderson", "contact":"+7777777777", "email":"danielanderson@example.com", "NIF":"777777777", "BI":"888888888", "last_logout":"11:40 01-01-2023", "level":"3"},
+{"id":"010", "name":"Sophia Thomas", "contact":"+8888888888", "email":"sophiathomas@example.com", "NIF":"888888888", "BI":"999999999", "last_logout":"10:15 01-01-2023", "level":"1"},
+{"id":"011", "name":"Matthew Clark", "contact":"+9999999999", "email":"matthewclark@example.com", "NIF":"999999999", "BI":"000000000", "last_logout":"08:50 01-01-2023", "level":"2"},
+{"id":"012", "name":"Isabella Rodriguez", "contact":"+1231231231", "email":"isabellarodriguez@example.com", "NIF":"123123123", "BI":"456456456", "last_logout":"07:25 01-01-2023", "level":"3"},
+{"id":"013", "name":"James Lee", "contact":"+2342342342", "email":"jameslee@example.com", "NIF":"234234234", "BI":"567567567", "last_logout":"05:00 01-01-2023", "level":"1"},
+{"id":"014", "name":"Mia Turner", "contact":"+3453453453", "email":"miaturner@example.com", "NIF":"345345345", "BI":"678678678", "last_logout":"03:35 01-01-2023", "level":"2"},
+{"id":"015", "name":"Benjamin Harris", "contact":"+4564564564", "email":"benjaminharris@example.com", "NIF":"456456456", "BI":"789789789", "last_logout":"02:10 01-01-2023", "level":"3"},
+{"id":"016", "name":"Ava Martin", "contact":"+5675675675", "email":"avamartin@example.com", "NIF":"567567567", "BI":"890890890", "last_logout":"00:45 01-01-2023", "level":"1"},
+{"id":"017", "name":"Joseph Thompson", "contact":"+6786786786", "email":"josephthompson@example.com", "NIF":"678678678", "BI":"901901901", "last_logout":"23:20 31-12-2022", "level":"2"},
+{"id":"018", "name":"Charlotte Garcia", "contact":"+7897897897", "email":"charlottegarcia@example.com", "NIF":"789789789", "BI":"012012012", "last_logout":"21:55 31-12-2022", "level":"3"},
+{"id":"019", "name":"Henry Moore", "contact":"+8908908908", "email":"henrymoore@example.com", "NIF":"890890890", "BI":"123123123", "last_logout":"20:30 31-12-2022", "level":"1"},
+{"id":"020", "name":"Amelia Allen", "contact":"+9019019019", "email":"ameliaallen@example.com", "NIF":"901901901", "BI":"234234234", "last_logout":"19:05 31-12-2022", "level":"2"}
+]

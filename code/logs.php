@@ -17,7 +17,7 @@
 				</div>
 
 				<div class="icons_content" id="ic_l">
-					<a href="#" onclick="load_table2();"> <i class="fa-solid fa-rotate-right fa-lg"></i> </a>
+					<a href="#" id="reload_button" onclick="event_listner_shared();"> <i class="fa-solid fa-rotate-right fa-lg"></i> </a>
 				</div>
 				<div class="icons_content" id="ic_r">
 					<a href="#"> <i class="fa-solid fa-filter fa-lg"></i> </a>
@@ -77,9 +77,10 @@
 					<p> ANOMALIAS</p>
 				</div>
 
+				
 				<div class="icons_content" id="ic_l">
-					<a href="#" onclick="load_table2();"> <i class="fa-solid fa-rotate-right fa-lg"></i> </a>
 				</div>
+				
 				<div class="icons_content" id="ic_r">
 					<a href="#"> <i class="fa-solid fa-filter fa-lg"></i> </a>
 				</div>

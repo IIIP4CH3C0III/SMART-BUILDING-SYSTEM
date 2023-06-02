@@ -19,7 +19,7 @@
 				</select>
 
 				<div class="icons_content" id="ic_l">
-					<a href="#" onclick="load_table(1);"> <i class="fa-solid fa-rotate-right fa-lg"></i> </a>
+					<a href="#" id="reload_button" onclick="event_listner_shared();"> <i class="fa-solid fa-rotate-right fa-lg"></i> </a>
 				</div>
 				<div class="icons_content" id="ic_r" >
 					<a type="button" class ="icon_content" id="add_db">  </a>
