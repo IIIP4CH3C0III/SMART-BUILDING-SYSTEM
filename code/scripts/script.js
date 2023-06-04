@@ -260,7 +260,7 @@ function event_listner_shared()
       if(logout != null) logout.addEventListener("click",f_last_logout);
 
       let reload_button = document.getElementById("reload_button");
-      if(reload_button != null) reload_button.addEventListener("click",load_table(localStorage.getItem('level'),localStorage.getItem('page'),1));
+      if(reload_button != null) reload_button.addEventListener("click",load_table(localStorage.getItem('user_level'),localStorage.getItem('page'),1));
 
 }
 
