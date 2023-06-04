@@ -7,7 +7,7 @@
 		<title> SmartBuilingSystem </title>
 	</head>
 
-	<body onload="default_values(4);">
+	<body onload="default_values();">
 		<?php include 'topbar.php'; ?>
 
 		<div class="content_background">

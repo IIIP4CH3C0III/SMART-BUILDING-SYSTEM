@@ -5,16 +5,23 @@
  * bem como o reset de todos os valores presentes na mesma, para assim simplificar o código
  */
 
-function default_values(page)
+function default_values()
 {
-      let user_name,user_level; //futuramente obter os dados php para o user e armazenalos nestas variavéis
+      let page = localStorage.getItem('page');
+      if( page == null || page == 1 )
+      { page = '1' ; localStorage.clear(); }
+
+      //futuramente obter os dados php para o user e armazenalos nestas variavéis
+      const user_name = localStorage.getItem('user_name')
+      const user_level = localStorage.getItem('user_level'); 
+      const user_session_id = localStorage.getItem('user_session_id');      
+
+      event_listner_shared();
+
+      //console.log(page);
 
       if(page != 1) //Caso não seja a primeira página
       {
-            //informação apenas utilizada para testes
-            user_name = "Userx"; 
-            user_level = 1;
-	
       	//load the JSON file 
 		//const filePath = 'JSON/dados.json';
 		//const jsonData = fs.readFileSync(filePath, 'utf-8');
@@ -26,15 +33,18 @@ function default_values(page)
 
       }
 
-      localStorage.setItem('page',page); //guardamos na memória do browser em qual página estamos.
-      localStorage.setItem('level',user_level); //guardamos na memória do browser qual o nível de permissão de utilizador.
+      //localStorage.setItem('page',page); //guardamos na memória do browser em qual página estamos.
+      //localStorage.setItem('level',user_level); //guardamos na memória do browser qual o nível de permissão de utilizador.
 
       switch(page) //de acordo com a página escolher qual funcções executar.
       {
             //login page
-            case 1: 
+            case '1': 
             {
                   let textbox_user = document.getElementById("textbox_full_center"); //obter o element correspondente com as caixas de texto
+                  
+                  if(textbox_user == null) window.location.href = "index.php";
+
                   textbox_user.value = null; //retirar qualquer valor nela presente
                   zoom(page,1.25); //executar uma função para dar um zoom na página atual
                   event_login(); //executar a função corresponde com os eventLogins da página de Login
@@ -42,7 +52,7 @@ function default_values(page)
             }
 
             //dashboardo ou home page
-            case 2:
+            case '2':
             {
                   load_table(user_level, page, 1); //caregar a tabela presente na dashboard
                   //futuramente seria mostrar todas as tabelas presentes na dashboard
@@ -50,7 +60,7 @@ function default_values(page)
             } 
 
             //database
-            case 3:
+            case '3':
             {
 			//Repor os valores presentes nas listbox presentes neste página.
                   let list_box1 = document.getElementById("textbox_l"); 
@@ -67,18 +77,19 @@ function default_values(page)
                   break;
             }
 
-            case 4:
+            case '4':
             {
+                  //TODO
                   load_table(user_level, page, 1); //expor a tabela  1 das logs tabela
                   load_table(user_level, page, 2); //expor a tabela  2 das logs tabela
                   break; 
             }
-            case 5:
+            case '5':
             {
                   load_form(localStorage.getItem('db_selection')); //expor o formulário de acordo com a base de dados selecionada na página 3
                   event_forms(); //inicializar o gestor de eventos desta página
+                  break;
             }
-
       }
 }
 
@@ -88,6 +99,83 @@ function default_values(page)
 //Implementar a verificação se o user tem internet ligada, para evitar problemas.
 
 //    light/dark theme
+
+
+
+
+
+
+
+
+/* Funções para encaminhar para o php */
+
+/* Função que envia o username e password e verifica, e se for correto guarda na memória do browser o nome do utilizador e seu nível de acceso */
+function php_send_creedentials(username,password)
+{
+      let xhr = new XMLHttpRequest(); //Criar o objeto que irá conter o XMLHttp
+
+      //method, url, async, user, password
+      //para este processo apenas utilizamos os primeiros 3
+      xhr.open('POST', 'scripts/php/checkLogin.php', true); 
+      
+      //A forma de validar
+      xhr.onload = function()
+      {
+            if(xhr.status === 200) //Se for válido a comunicação
+            {
+                  //buscar a resposta do pedido
+                  let response = xhr.responseText;
+                  let responde_splited = response.split(",");
+
+                  if( responde_splited[0] === "success")
+                  {
+                        localStorage.setItem('user_name',responde_splited[1]);                        
+                        localStorage.setItem('user_level',responde_splited[2]); 
+                        localStorage.setItem('user_session_id',responde_splited[3]); 
+
+                        localStorage.setItem('page',2);
+                        window.location.href = "home.php";
+                        return true;
+                  }
+                  else
+                  {
+                        //Se errar na password ou o utilizador a indicação é dada ao utilizador
+                        let element_error_message = document.getElementById("warning_message");
+                        element_error_message.innerHTML = "Utilizador ou palavra-passe errados.";
+
+                        //e_username.value = null;
+                        //e_password.value = null;
+
+                        return false;
+                  }
+            }
+      };
+
+
+      //enviar a informação;
+      let data = new FormData();
+      data.append('username',username);
+      data.append('password',password);
+
+      xhr.send(data);
+}
+
+/* Função para registrar o ultimo logout efetuado e descartar a memória do browser */
+//TODO
+function f_last_logout()
+{
+      //efetuar comunicação
+      //enviar data atual
+
+      //descartar memória 
+      localStorage.setItem('page',1);
+      window.location.href = "index.php";
+      localStorage.clear();
+}
+
+
+
+
 
 
 
@@ -139,7 +227,7 @@ function hasSpecialCharacters(str) {
 function displayGreeting(name,level) 
 {
       let permission;
-      if(level)
+      if(level == 1)
             permission = "adminstrador";
       if(level == 2)
             permission = "monitor";
@@ -159,9 +247,21 @@ function displayGreeting(name,level)
 /* Botões partilhados entre páginas */
 function event_listner_shared()
 {
-      //TODO
+      let home = document.getElementById("home");
+      if(home != null) home.addEventListener("click",function(){ window.location.href = "home.php"; localStorage.setItem('page',2); });
+
+      let db = document.getElementById("db");
+      if(db != null) db.addEventListener("click",function(){ window.location.href = "db.php"; localStorage.setItem('page',3);});
+
+      let logs = document.getElementById("logs");
+      if(logs != null) logs.addEventListener("click",function(){ window.location.href = "logs.php"; localStorage.setItem('page',4);});
+
+      let logout = document.getElementById("logout");
+      if(logout != null) logout.addEventListener("click",f_last_logout);
+
       let reload_button = document.getElementById("reload_button");
-      reload_button.addEventListener("click",load_table(localStorage.getItem('level'),localStorage.getItem('page'),1));
+      if(reload_button != null) reload_button.addEventListener("click",load_table(localStorage.getItem('level'),localStorage.getItem('page'),1));
+
 }
 
 
@@ -170,7 +270,7 @@ function event_listner_shared()
 function load_table(level, page, db_presented)
 {
       //Adicionar o butão de entradas dependendo do level
-      if(page==3) load_entry_button(level);
+      if(page == 3) load_entry_button(level);
 
       //Raw Data para exprimentar funcionalidades NAO APAGAR ESTED DADOS APENAS COMENTAR!!!
       
@@ -412,7 +512,7 @@ function load_table(level, page, db_presented)
 
             cont = 0;
 
-            if (level == 1 && page == 3) {
+            if (level == "1" && page == 3) {
                   //Criar divisoria para icones
                   rowIcons = document.createElement("div");
                   rowIcons.classList.add("row_icons");
@@ -441,15 +541,16 @@ function load_table(level, page, db_presented)
       }
 
       rowContainer.appendChild(table);
+      return null;
 }
 
 function load_entry_button(level)
 {
       //Adicionar o butão de adicionar entradas
-      if(level == 1)//admin
+      if(level == "1")//admin
       {
             let add_icon = document.getElementById("add_db");
-            add_icon.innerHTML = '<i class="fa-solid fa-plus fa-lg"></i>';  //<i class="fa-solid fa-plus fa-lg"></i>
+            if(add_icon != null) add_icon.innerHTML = '<i class="fa-solid fa-plus fa-lg"></i>';  //<i class="fa-solid fa-plus fa-lg"></i>
       }
 }
 
@@ -543,12 +644,9 @@ function select_db()
 {
       let option_db = document.getElementById("textbox_l");
       localStorage.setItem('db_selection',option_db.value);
+      localStorage.setItem('page',5);
       window.location.href = "forms.php";
 }
-
-
-
-
 
 
 
@@ -653,9 +751,13 @@ function event_forms()
 function cancel_submission()
 {
       if(confirm("Tem a certeza que pretende cancelar o formulário?"))
+      {
+            localStorage.setItem('page',3);
             window.location.href = "db.php";
+            return true;
+      }
 
-      return 0;
+      return false;
 }
 
 function submit_submission()
@@ -663,9 +765,11 @@ function submit_submission()
       if(confirm("Tem a certeza que pretende submeter o formulário?"))
       {       
             alert("submit");
+            localStorage.setItem('page',3);
             window.location.href = "db.php";
+            return true;
       }
-      return 0;
+      return false;
 }
 
 
@@ -682,10 +786,11 @@ function event_login()
 
 function check_form()
 {
-      let flag = false;
-      let e_username = getElementByPlaceholder("input","Nome de utilizador");
-      let username = e_username.value;
+      let flag = false; //flag que indicará a existência de erros no formulário
+      const e_username = getElementByPlaceholder("input","Nome de utilizador"); //váriavel contendo o elemento do username
+      let username = e_username.value; //o username indicado pelo utilizador
 
+      //Verificar a existência de caracteres especiais
       if(hasSpecialCharacters(username) || username=="")
       {
             //mudar cor para vermelho clarinho
@@ -693,10 +798,10 @@ function check_form()
             flag = true;
       }
 
+      let e_password = getElementByPlaceholder("input","Palavra-Chave"); //váriavel contendo o elemento da password
+      let password = e_password.value; //a password indicada pelo utilizador
 
-      let e_password = getElementByPlaceholder("input","Palavra-Chave");
-      let password = e_password.value;
-
+      //Verificar se a password não é nula
       if(password == "")
       {
             //mudar cor para vermelho clarinho
@@ -704,6 +809,7 @@ function check_form()
             flag = true;
       }
 
+      //Indicação de erros presentes no formulário
       if (flag==true)
       {
             let element_error_message = document.getElementById("warning_message");
@@ -711,19 +817,8 @@ function check_form()
             return null;
       }
 
-      if(username == "admin" && password == "password")
-      {
-            //cookie <- guardar a cookie do user, localstorage, confirmar antes de entrar em cada pagina se a cookie funciona 
-            window.location.href = "home.php";
-            return null;
-      }
-
-      let element_error_message = document.getElementById("warning_message");
-      element_error_message.innerHTML = "Utilizador ou palavra-passe errados.";
-
-      e_username.value = null;
-      e_password.value = null;
-      return null;
+      //Verificar se o utilizador e a password estão corretas
+      php_send_creedentials(username,password);
 }
 
 
