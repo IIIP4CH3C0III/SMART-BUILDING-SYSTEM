@@ -55,6 +55,7 @@ body
   justify-content: end;
   align-items: center;
   width: 30%;
+  cursor: pointer;
 }
 
 .icon{ margin-right: 5%; color: var(--clr-semi-bold); width: 5% ; justify-content: center; display: flex;}
@@ -220,6 +221,10 @@ body
   width: 15%;
   direction: ltr;
 }
+
+#textbox_r:hover{ background-color: var(--clr-header); }
+#textbox_l:hover{ background-color: var(--clr-header); }
+
  
 .container#textbox_r
 {
@@ -304,7 +309,7 @@ body
   justify-content: center;
 }
 
-.icon_content#add_db {  }
+.icon_content#add_db:hover { cursor: pointer; }
 
 .row_text /* O texto presente na linha */
 {
@@ -332,6 +337,7 @@ body
 
 .container#listbox_bottom{  width: 10%; direction:rtl; }
 #listbox_bottom:hover{ background-color: var(--clr-header); }
+
 
 .box_left_pos { width: 95%; padding: 0.5%; }
 .box_left_pos1 { width: 70%; padding: 0.5%; }
