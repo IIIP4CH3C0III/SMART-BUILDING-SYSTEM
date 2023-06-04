@@ -1,73 +1,82 @@
-/* Resetar valor */
+/* Função principal */
+
+/*
+ * Esta função cumpre um papel crucial no website pois é esta que irá decidir quais funções serão inicializadas com a página,
+ * bem como o reset de todos os valores presentes na mesma, para assim simplificar o código
+ */
+
 function default_values(page)
 {
-      let user_name,user_level;
+      let user_name,user_level; //futuramente obter os dados php para o user e armazenalos nestas variavéis
 
-      if(page != 1)
+      if(page != 1) //Caso não seja a primeira página
       {
-            //user test information
+            //informação apenas utilizada para testes
             user_name = "Userx"; 
             user_level = 1;
-			//load the JSON file 
-			//const filePath = 'JSON/dados.json';
-			//const jsonData = fs.readFileSync(filePath, 'utf-8');
-			
-			//parse the JSON data 
-			//const data = JSON.parse(jsonData);
+	
+      	//load the JSON file 
+		//const filePath = 'JSON/dados.json';
+		//const jsonData = fs.readFileSync(filePath, 'utf-8');
+		
+		//parse the JSON data 
+		//const data = JSON.parse(jsonData);
+
+            displayGreeting(user_name,user_level); //Função para mostrar o nome e nível do utilizador ao longo das páginas
+
       }
 
-      localStorage.setItem('page',page);
-      localStorage.setItem('level',user_level);
+      localStorage.setItem('page',page); //guardamos na memória do browser em qual página estamos.
+      localStorage.setItem('level',user_level); //guardamos na memória do browser qual o nível de permissão de utilizador.
 
-      switch(page)
+      switch(page) //de acordo com a página escolher qual funcções executar.
       {
             //login page
             case 1: 
             {
-                  let textbox_user = document.getElementById("textbox_full_center");
-                  textbox_user.value = null;
-                  zoom(page,1.25);
-                  event_login();
+                  let textbox_user = document.getElementById("textbox_full_center"); //obter o element correspondente com as caixas de texto
+                  textbox_user.value = null; //retirar qualquer valor nela presente
+                  zoom(page,1.25); //executar uma função para dar um zoom na página atual
+                  event_login(); //executar a função corresponde com os eventLogins da página de Login
                   break;
             }
 
             //dashboardo ou home page
             case 2:
             {
-                  displayGreeting(user_name,user_level); 
-                  load_table(user_level, page);
+                  load_table(user_level, page, 1); //caregar a tabela presente na dashboard
+                  //futuramente seria mostrar todas as tabelas presentes na dashboard
                   break;
             } 
 
             //database
             case 3:
             {
-				
-                  let list_box1 = document.getElementById("textbox_l");
+			//Repor os valores presentes nas listbox presentes neste página.
+                  let list_box1 = document.getElementById("textbox_l"); 
                   let list_box2 = document.getElementById("textbox_r");
                   let list_box3 = document.getElementById("listbox_bottom");
 
                   list_box1.selectedIndex = 0; 
                   list_box2.selectedIndex = 0; 
                   list_box3.selectedIndex = 0;       
+                  //
 
-                  displayGreeting(user_name,user_level); 
-                  load_table(user_level, page); 
-                  event_db();
+                  load_table(user_level, page, 1); //expor a tabela necessária 
+                  event_db(); //inicializar o gestor de eventos desta página
                   break;
             }
 
             case 4:
             {
-                  displayGreeting(user_name,user_level); 
-                  load_table(user_level, page);
+                  load_table(user_level, page, 1); //expor a tabela  1 das logs tabela
+                  load_table(user_level, page, 2); //expor a tabela  2 das logs tabela
                   break; 
             }
             case 5:
             {
-                  displayGreeting(user_name,user_level);
-                  load_form(localStorage.getItem('db_selection')); 
-                  event_forms();
+                  load_form(localStorage.getItem('db_selection')); //expor o formulário de acordo com a base de dados selecionada na página 3
+                  event_forms(); //inicializar o gestor de eventos desta página
             }
 
       }
@@ -78,11 +87,13 @@ function default_values(page)
 
 //Implementar a verificação se o user tem internet ligada, para evitar problemas.
 
+//    light/dark theme
 
 
 
 /* Funções especiais */
 
+/* Função para obter o elemento do documento de acordo com a tag e o valor presente no html */ 
 function getElementByValue(tag,value)
 {
       let elements = document.getElementsByTagName(tag);
@@ -94,6 +105,7 @@ function getElementByValue(tag,value)
       return null;
 }
 
+/* Função para obter o elemento do documento de acordo com a tag e o placeholder presente no html */ 
 function getElementByPlaceholder(tag,placeholder)
 {
       let elements = document.getElementsByTagName(tag);
@@ -105,7 +117,7 @@ function getElementByPlaceholder(tag,placeholder)
       return null;
 }
 
-
+/* Função para dar zoom na página */ 
 function zoom(page,zoom_num)
 {
       let value = "scale(" + zoom_num + ")";
@@ -114,6 +126,7 @@ function zoom(page,zoom_num)
 }
 
 
+/* Função para verificar a existência de caracters especiais, return true=existe*/ 
 function hasSpecialCharacters(str) {
   var regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
   return regex.test(str);
@@ -122,6 +135,7 @@ function hasSpecialCharacters(str) {
 
 /* Top Bar information */
 
+/* Disposição do texto na top bar de acordo com o nome e grau de permissões */
 function displayGreeting(name,level) 
 {
       let permission;
@@ -142,33 +156,21 @@ function displayGreeting(name,level)
 
 //General buttons
 
+/* Botões partilhados entre páginas */
 function event_listner_shared()
 {
+      //TODO
       let reload_button = document.getElementById("reload_button");
-      reload_button.addEventListener("click",load_table(localStorage.getItem('level'),localStorage.getItem('page')));
+      reload_button.addEventListener("click",load_table(localStorage.getItem('level'),localStorage.getItem('page'),1));
 }
 
 
 /* Database página */
 
-function load_table(level, page)
+function load_table(level, page, db_presented)
 {
       //Adicionar o butão de entradas dependendo do level
       if(page==3) load_entry_button(level);
-
-      //Remover informação antiga, para poder refazer a tabela
-      let removeCONTAINER = document.getElementById("remove");    
-      if(removeCONTAINER != null)
-            removeCONTAINER.remove();
-
-      // Obter o objeto pai
-      let rowContainer = document.getElementById("rowContainer");
-
-      // Criar a tabela
-      let table = document.createElement("div");
-      table.id = "remove"; // Atribuir o id, para futuramente podermos remover
-      table.classList.add("table_db"); //nome da classe
-
 
       //Raw Data para exprimentar funcionalidades NAO APAGAR ESTED DADOS APENAS COMENTAR!!!
       
@@ -198,6 +200,41 @@ function load_table(level, page)
 
       const logData = 
       [
+            {id:"001", nome:"Sensor Xiaomi", serialnumber:"XC293JSA1", estado:"1", edificio:"1A", andar:"2", divisao:"120", data:"23:55 13-05-2023", grau:"3"}
+            ,{id:"002", nome:"Smart Thermostat", serialnumber:"D7E21K63A9B", estado:"0", edificio:"2B", andar:"1", divisao:"105", data:"09:30 15-04-2023", grau:"1"}
+            ,{id:"003", nome:"Security Camera", serialnumber:"XY9DH6A4E82", estado:"1", edificio:"3C", andar:"3", divisao:"315", data:"17:20 28-03-2023", grau:"2"}
+            ,{id:"004", nome:"Smoke Detector", serialnumber:"B21JF894Y3G", estado:"0", edificio:"1A", andar:"4", divisao:"405", data:"12:45 02-02-2023", grau:"0"}
+            ,{id:"005", nome:"Door Sensor", serialnumber:"P2U83K59T7C", estado:"1", edificio:"2B", andar:"2", divisao:"209", data:"08:15 19-01-2023", grau:"3"}
+            ,{id:"006", nome:"Motion Sensor", serialnumber:"N4C85D7G6F12", estado:"1", edificio:"3C", andar:"1", divisao:"102", data:"14:30 07-12-2022", grau:"2"}
+            ,{id:"007", nome:"Water Leak Sensor", serialnumber:"M39A47B62H5C", estado:"0", edificio:"1A", andar:"3", divisao:"307", data:"11:10 22-11-2022", grau:"1"}
+            ,{id:"008", nome:"Temperature Sensor", serialnumber:"T2X9H7R5Q8Z", estado:"1", edificio:"2B", andar:"1", divisao:"108", data:"07:25 04-10-2022", grau:"0"}
+            ,{id:"009", nome:"Carbon Monoxide Detector", serialnumber:"L5T84F26J7S", estado:"0", edificio:"3C", andar:"2", divisao:"211", data:"16:50 17-09-2022", grau:"3"}
+            ,{id:"010", nome:"Window Sensor", serialnumber:"K7E85J42D3N", estado:"1", edificio:"1A", andar:"4", divisao:"404", data:"13:15 01-08-2022", grau:"2"}
+            ,{id:"011", nome:"Sensor Xiaomi", serialnumber:"R92W6E81B3D", estado:"1", edificio:"2B", andar:"2", divisao:"202", data:"22:40 15-07-2022", grau:"1"}
+            ,{id:"012", nome:"Smart Thermostat", serialnumber:"F3D71C82J9T", estado:"0", edificio:"3C", andar:"1", divisao:"103", data:"18:05 30-06-2022", grau:"0"}
+            ,{id:"013", nome:"Security Camera", serialnumber:"V8N6B2J1D7X", estado:"1", edificio:"1A", andar:"3", divisao:"306", data:"09:30 14-06-2022", grau:"3"}
+            ,{id:"014", nome:"Smoke Detector", serialnumber:"G9Y1K38C27R", estado:"0", edificio:"2B", andar:"1", divisao:"102", data:"05:45 27-05-2022", grau:"2"}
+            ,{id:"015", nome:"Door Sensor", serialnumber:"S4W5E7F1B3C", estado:"1", edificio:"3C", andar:"2", divisao:"209", data:"16:20 09-04-2022", grau:"1"}
+            ,{id:"016", nome:"Motion Sensor", serialnumber:"U5H2D7R6A4W", estado:"1", edificio:"1A", andar:"4", divisao:"407", data:"12:55 23-03-2022", grau:"0"}
+            ,{id:"017", nome:"Water Leak Sensor", serialnumber:"A8D6G7H3N9Q", estado:"0", edificio:"2B", andar:"2", divisao:"207", data:"09:30 06-02-2022", grau:"3"}
+            ,{id:"018", nome:"Temperature Sensor", serialnumber:"B6F4E9C7X2D", estado:"1", edificio:"3C", andar:"1", divisao:"102", data:"05:45 20-01-2022", grau:"2"}
+            ,{id:"019", nome:"Carbon Monoxide Detector", serialnumber:"H3F7C4V9B6K", estado:"0", edificio:"1A", andar:"3", divisao:"302", data:"16:20 03-12-2021", grau:"1"}
+            ,{id:"020", nome:"Window Sensor", serialnumber:"T6N3J2R7E4D", estado:"1", edificio:"2B", andar:"1", divisao:"105", data:"12:55 16-11-2021", grau:"0"}
+            ,{id:"021", nome:"Sensor Xiaomi", serialnumber:"V1G3D5C7H2B", estado:"1", edificio:"3C", andar:"2", divisao:"202", data:"09:30 31-10-2021", grau:"3"}
+            ,{id:"022", nome:"Smart Thermostat", serialnumber:"L6K3C9F2G4V", estado:"0", edificio:"1A", andar:"4", divisao:"404", data:"05:45 14-09-2021", grau:"2"}
+            ,{id:"023", nome:"Security Camera", serialnumber:"B2N6M9K3H8J", estado:"1", edificio:"2B", andar:"2", divisao:"209", data:"16:20 27-08-2021", grau:"1"}
+            ,{id:"024", nome:"Smoke Detector", serialnumber:"Y8B2D3J4C6G", estado:"0", edificio:"3C", andar:"1", divisao:"102", data:"12:55 10-07-2021", grau:"0"}
+            ,{id:"025", nome:"Door Sensor", serialnumber:"Q1D7G3H5B9N", estado:"1", edificio:"1A", andar:"3", divisao:"308", data:"09:30 23-06-2021", grau:"3"}
+            ,{id:"026", nome:"Motion Sensor", serialnumber:"X7B3M2K4V9C", estado:"1", edificio:"2B", andar:"1", divisao:"101", data:"05:45 06-05-2021", grau:"2"}
+            ,{id:"027", nome:"Water Leak Sensor", serialnumber:"Z9X6V3B2N7M", estado:"0", edificio:"3C", andar:"2", divisao:"205", data:"16:20 19-04-2021", grau:"1"}
+            ,{id:"028", nome:"Temperature Sensor", serialnumber:"E5C4H9N6B3V", estado:"1", edificio:"1A", andar:"4", divisao:"406", data:"12:55 02-03-2021", grau:"0"}
+            ,{id:"029", nome:"Carbon Monoxide Detector", serialnumber:"U4N7B2M3K8X", estado:"0", edificio:"2B", andar:"2", divisao:"208", data:"09:30 14-02-2021", grau:"3"}
+            ,{id:"030", nome:"Window Sensor", serialnumber:"R9N7M3K4B2X", estado:"1", edificio:"3C", andar:"1", divisao:"104", data:"05:45 27-01-2021", grau:"2"}
+      ]
+
+      /*
+      const logData = 
+      [
             {id:"001", edifício:"1", andar:"1", divisão:"1", estado:"0", descrição:"Janeiro Fernandes", hora:"23:55", data:"13-05-2023", grau:"3"},
             {id:"002", edifício:"2", andar:"3", divisão:"2", estado:"1", descrição:"Carlos Santos", hora:"08:30", data:"19-04-2023", grau:"2"},
             {id:"003", edifício:"3", andar:"2", divisão:"4", estado:"0", descrição:"Maria Silva", hora:"14:15", data:"07-06-2023", grau:"1"},
@@ -223,6 +260,7 @@ function load_table(level, page)
             {id:"023", edifício:"2", andar:"2", divisão:"4", estado:"0", descrição:"Inês Sousa", hora:"15:30", data:"06-06-2023", grau:"2"},
             {id:"024", edifício:"3", andar:"4", divisão:"1", estado:"1", descrição:"Luís Mendes", hora:"12:20", data:"29-05-2023", grau:"1"},
       ];
+      */
 
       // buscar informação do numero de linhas que pretendemos ver
       let numberChoosed;
@@ -234,13 +272,64 @@ function load_table(level, page)
 
       //variavél que irá conter os dados
       let data;
+      /*
       if (page == 3) 
             data = rowData;
       if (page == 2 || page == 4) 
             data = logData;
+      */
+
+      let db_choosed_toshow; 
+      if(page == 3)
+      {
+            db_choosed_toshow = document.getElementById('textbox_l').value ;
+
+            if(db_choosed_toshow == 1)
+                  data = rowData;
+            if(db_choosed_toshow == 2)
+                  data = logData;
+      }
+
+      if(page != 3)
+            data = logData;
 
       // Definir as váriaveis para os diversos objetos filhos
-      let rowText , rowIcons, row, cont=0;
+      let rowContainer, table,  rowText , rowIcons, row, cont=0;
+
+      // Obter o objeto pai
+      if(db_presented == 1){
+      
+            //Remover informação antiga, para poder refazer a tabela
+            const removeCONTAINER = document.getElementById("remove");    
+            if(removeCONTAINER != null)
+                  removeCONTAINER.remove();
+
+            rowContainer = document.getElementById("rowContainer");
+
+            // Criar a tabela
+            table = document.createElement("div");
+            table.id = "remove"; // Atribuir o id, para futuramente podermos remover
+            table.classList.add("table_db"); //nome da classe
+
+      }
+      if(db_presented == 2){
+
+            //Remover informação antiga, para poder refazer a tabela
+            const removeCONTAINER = document.getElementById("remove2");    
+            if(removeCONTAINER != null)
+                  removeCONTAINER.remove();
+
+            rowContainer = document.getElementById("rowContainer2");
+
+            // Criar a tabela
+            table = document.createElement("div");
+            table.id = "remove2"; // Atribuir o id, para futuramente podermos remover
+            table.classList.add("table_db"); //nome da classe
+
+      }
+
+
+
 
       // Os diferentes identificadores de campos, nesta possibilidade contentdo a capacidade máxima.
       const fields_id = ["f1","f2","f3","f4","f5","f6","f7","f8","f9"];
@@ -248,6 +337,9 @@ function load_table(level, page)
       // Se a quantidade que o utilizador pretender mostrar for superior a quantidade de dados existentes, limitar esses dados aos existentes
       if(numberChoosed > data.length)
             numberChoosed = data.length;
+
+      //editar o header 
+      if(page == 3) generate_header(db_choosed_toshow);
 
       // Varrer e criar as linhas
       for (let i = 0; i < numberChoosed ; i++) 
@@ -351,12 +443,6 @@ function load_table(level, page)
       rowContainer.appendChild(table);
 }
 
-function remove_table()
-{
-      let rowContainer = document.getElementById("remove");    
-      rowContainer.remove();
-}
-
 function load_entry_button(level)
 {
       //Adicionar o butão de adicionar entradas
@@ -365,6 +451,86 @@ function load_entry_button(level)
             let add_icon = document.getElementById("add_db");
             add_icon.innerHTML = '<i class="fa-solid fa-plus fa-lg"></i>';  //<i class="fa-solid fa-plus fa-lg"></i>
       }
+}
+
+function generate_header(db)
+{
+      let fields_name;
+      if(db)
+            fields_name = ["ID","Nome","Contacto","Email","NIF","BI"];
+
+      if(db==2)
+            fields_name = ["ID","Nome","SN","Edifico","Andar","Divisão"];
+
+
+      let removeCONTAINER = document.getElementById("remove_header");    
+      if(removeCONTAINER != null)
+            removeCONTAINER.remove();
+
+
+      const element = document.getElementById('rowHeader');
+
+      const table = document.createElement("div");
+      table.id = "remove_header"; // Atribuir o id, para futuramente podermos remover
+      table.classList.add("table_db"); //nome da classe
+
+      /*
+      <div class="row">
+            <div class="row_text">
+                  <div class="row_field" id="f1">ID</div>
+                  <div class="row_field" id="f2">Nome</div>
+                  <div class="row_field" id="f3">Contacto</div>
+                  <div class="row_field" id="f4">Email</div>
+                  <div class="row_field" id="f5">NIF</div>
+                  <div class="row_field" id="f6">BI</div>
+            </div>
+            <div class="row_icons">
+                  <a class="row_icon" > Editar </a>
+                  <a class="row_icon" > Remover </a>
+            </div>
+      </div>
+
+      const removeCONTAINER = document.getElementById("remove_header");
+      if(removeCONTAINER != null)
+            removeCONTAINER.remove();                        
+      */
+
+      const row = document.createElement("div");
+      row.classList.add("row");
+
+
+      const rowText = document.createElement("div");
+      rowText.classList.add("row_text");
+
+      for( let x = 0 ; x < fields_name.length ; x++)
+      {
+            const rowField = document.createElement("div");
+            rowField.classList.add("row_field");
+            rowField.id = `f${x+1}`;
+            rowField.innerHTML = fields_name[x];
+
+            rowText.appendChild(rowField);
+      }
+
+      const rowIcons = document.createElement("div");
+      rowIcons.classList.add("row_icons");
+
+      const options = ["Editar","Remover"];
+
+      for( let x = 0 ; x < options.length ; x++)
+      {
+            const rowIcon = document.createElement("a");
+            rowIcon.classList.add("row_icon");
+            rowIcon.innerHTML = options[x];
+
+            rowIcons.appendChild(rowIcon); 
+      }
+
+      row.appendChild(rowText);
+      row.appendChild(rowIcons);
+      table.appendChild(row);
+      element.appendChild(table);
+
 }
 
 function event_db()
@@ -507,10 +673,6 @@ function submit_submission()
 
 
 /*  Login Page */ 
-
-
-//TODO
-
 
 function event_login()
 {

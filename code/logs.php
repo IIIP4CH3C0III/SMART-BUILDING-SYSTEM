@@ -37,13 +37,13 @@
 				<div class="table_db">	
 					<div class="row">
 						<div class="row_text" id="full">
-							<div class="row2_field" id="f1">DispositivoID</div>
-							<div class="row2_field" id="f2">Edifício</div>
-							<div class="row2_field" id="f3">Andar</div>
-							<div class="row2_field" id="f4">Divisão</div>
-							<div class="row2_field" id="f5">Estado</div>
-							<div class="row2_field" id="f6">Descrição</div>
-							<div class="row2_field" id="f7">Hora</div>
+							<div class="row2_field" id="f1">ID</div>
+							<div class="row2_field" id="f2">Dispositivo</div>
+							<div class="row2_field" id="f3">SN</div>
+							<div class="row2_field" id="f4">Estado</div>
+							<div class="row2_field" id="f5">Edifico</div>
+							<div class="row2_field" id="f6">Andar</div>
+							<div class="row2_field" id="f7">Divisão</div>
 							<div class="row2_field" id="f8">Data</div>
 							<div class="row2_field" id="f9">Grau</div>
 						</div>
@@ -54,6 +54,8 @@
 
 			<div class="content" id="rowContainer">
 			</div>
+
+			<!--
 
 			<div class="content">
 				<div class="box_left_pos"></div>
@@ -69,6 +71,8 @@
 
 			<div class="content">
 			</div>
+			-->
+			
 		</div>
 		
 		<div class="content_background">
@@ -81,6 +85,8 @@
 				<div class="icons_content" id="ic_l">
 				</div>
 				
+
+				<!--
 				<div class="icons_content" id="ic_r">
 					<a href="#"> <i class="fa-solid fa-filter fa-lg"></i> </a>
 				</div>
@@ -91,7 +97,7 @@
 					<option value="1"> A-Z </option>
 					<option value="2"> Z-A </option>
 				</select>
-
+				-->s
 			</div>
 
 
@@ -99,13 +105,13 @@
 				<div class="table_db">	
 					<div class="row">
 						<div class="row_text" id="full">
-							<div class="row2_field" id="f1">DispositivoID</div>
-							<div class="row2_field" id="f2">Edifício</div>
-							<div class="row2_field" id="f3">Andar</div>
-							<div class="row2_field" id="f4">Divisão</div>
-							<div class="row2_field" id="f5">Estado</div>
-							<div class="row2_field" id="f6">Descrição</div>
-							<div class="row2_field" id="f7">Hora</div>
+							<div class="row2_field" id="f1">ID</div>
+							<div class="row2_field" id="f2">Dispositivo</div>
+							<div class="row2_field" id="f3">SN</div>
+							<div class="row2_field" id="f4">Estado</div>
+							<div class="row2_field" id="f5">Edifico</div>
+							<div class="row2_field" id="f6">Andar</div>
+							<div class="row2_field" id="f7">Divisão</div>
 							<div class="row2_field" id="f8">Data</div>
 							<div class="row2_field" id="f9">Grau</div>
 						</div>
@@ -114,9 +120,10 @@
 				</div>	
 			</div>
 
-			<div class="content" id="rowContainer">
+			<div class="content" id="rowContainer2">
 			</div>
 
+			
 			<div class="content">
 				<div class="box_left_pos"></div>
 				<select class="container" id="listbox_bottom">
@@ -128,7 +135,6 @@
 					<option value="50" >50</option>
 				</select>
 			</div>
-
 			<div class="content">
 			</div>
 		</div>

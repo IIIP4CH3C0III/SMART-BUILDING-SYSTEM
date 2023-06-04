@@ -36,23 +36,11 @@
 			</div>
 
 
-			<div class="content">
-				<div class="table_db">	
-					<div class="row">
-						<div class="row_text">
-							<div class="row_field" id="f1">ID</div>
-							<div class="row_field" id="f2">Nome</div>
-							<div class="row_field" id="f3">Contacto</div>
-							<div class="row_field" id="f4">Email</div>
-							<div class="row_field" id="f5">NIF</div>
-							<div class="row_field" id="f6">BI</div>
-						</div>
-						<div class="row_icons">
-							<a class="row_icon" > Editar </a>
-							<a class="row_icon" > Remover </a>
-						</div>
-					</div>
-				</div>	
+			<div class="content" id="rowHeader">
+				<!--
+				<div class="table_db" id="header">	
+				</div>
+				-->	
 			</div>
 
 			<div class="content" id="rowContainer">
