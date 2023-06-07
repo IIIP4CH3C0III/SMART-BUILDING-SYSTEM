@@ -7,7 +7,7 @@
 		<title> SmartBuilingSystem </title>
 	</head>
 
-	<body onload="default_values(2);">
+	<body onload="default_values();">
 		<?php include 'topbar.php'; ?>
 
 		<main class="main">
@@ -22,7 +22,7 @@
 				<div class="card"><h2 class="text">Dados de controlo da planta</h2></div>
 				<div class="card"><h2 class="text">Planta edifício</h2></div>
 				<div class="card">
-					<div class="content">
+					<div class="content_res">
 						<div class="table_db">	
 							<div class="row">
 								<div class="row_text" id="full">
@@ -38,6 +38,8 @@
 								</div>
 							</div>
 						</div>	
+					</div>
+					<div class="content" id="rowContainer2">
 					</div>
 				</div>
 				<div class="card">

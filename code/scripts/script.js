@@ -55,7 +55,8 @@ function default_values()
             case '2':
             {
                   load_table(user_level, page, 1); //caregar a tabela presente na dashboard
-                  //futuramente seria mostrar todas as tabelas presentes na dashboard
+                  console.log("hi");
+                  load_table(user_level, page, 2); //futuramente seria mostrar todas as tabelas presentes na dashboard
                   break;
             } 
 
