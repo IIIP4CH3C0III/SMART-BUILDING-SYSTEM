@@ -97,7 +97,7 @@
 					<option value="1"> A-Z </option>
 					<option value="2"> Z-A </option>
 				</select>
-				-->s
+				-->
 			</div>
 
 
