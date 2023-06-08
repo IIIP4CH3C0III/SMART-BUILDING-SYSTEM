@@ -1,20 +1,22 @@
 <?php
-    //These are the defined authentication environment in the db service
 
-    // The MySQL service named in the docker-compose.yml.
-    $host = 'sbs';
+    $connect = mysqli_connect(
+        'db',
+        'admin',
+        'LaGcd62EpArSTt5B',
+        'sbs',
+    );
 
-    // Database use name
-    $user = 'admin';
+    $table_name = "CLIENTS";
 
-    //database user password
-    $pass = 'LaGcd62EpArSTt5B';
+    $query = "SELECT * FROM $table_name";
 
-    // check the MySQL connection status
-    $conn = new mysqli($host, $user, $pass);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } else {
-        echo "Connected to MySQL server successfully!";
+    $response = mysqli_query($connect, $query);
+
+    echo "<strong>$table_name: <strong>";
+    while($i = mysqli_fetch_assoc($response))
+    {
+        echo "<p>".$i['FULL_NAME']."<p>";
     }
+
 ?>

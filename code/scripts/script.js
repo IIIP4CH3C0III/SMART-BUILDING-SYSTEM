@@ -126,7 +126,9 @@ function php_send_creedentials(username,password)
             {
                   //buscar a resposta do pedido
                   let response = xhr.responseText;
-                  let responde_splited = response.split(",");
+                  let responde_splited;
+
+                  if( response === "error_1" || response === "error_2" || response === "error_3" ) responde_splited = response.split(",");
 
                   if( responde_splited[0] === "success")
                   {
@@ -138,7 +140,7 @@ function php_send_creedentials(username,password)
                         window.location.href = "home.php";
                         return true;
                   }
-                  else
+                  if( responde_splited === "error_2" )
                   {
                         //Se errar na password ou o utilizador a indicação é dada ao utilizador
                         let element_error_message = document.getElementById("warning_message");
@@ -146,6 +148,13 @@ function php_send_creedentials(username,password)
 
                         //e_username.value = null;
                         //e_password.value = null;
+
+                        return false;
+                  }
+                  if( responde_splited === "error_1" )
+                  {
+                        let element_error_message = document.getElementById("warning_message");
+                        element_error_message.innerHTML = "Conexão falhada.";
 
                         return false;
                   }
