@@ -8,9 +8,6 @@
 	</head>
 
 	<body class="login" onload="default_values(1);">
-
-		<?php include 'scripts/php/test.php' ?>
-
 		<div  class="login_block" id="zoom">
 			<div class="login_logo">
 				<img src="images/logo.svg" alt="logo">

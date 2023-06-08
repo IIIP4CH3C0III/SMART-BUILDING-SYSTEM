@@ -1,0 +1,29 @@
+version: '3' #versão do docker
+services:
+  website: #aplicação da web
+    image: php:8.0-apache
+    container_name:  deapc_webserver  
+    restart: always
+    ports:
+      - 8060:80
+    volumes: #pasta onde o website está gravado
+      - /home/pacheco/APPDATA/website-deapc/SMART-BUILDING-SYSTEM/code/:/var/www/html
+  
+  db:
+    image: mysql:5.7
+    container_name: deapc_database
+    environment:
+      MYSQL_ROOT_PASSWORD: AQHajXCLpE2dqZVI
+      MYSQL_DATABASE: sbs
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: LaGcd62EpArSTt5B
+    volumes:
+        - /home/pacheco/APPDATA/website-deapc/SMART-BUILDING-SYSTEM/code/database/data/:/docker-entrypoint-initdb.d
+  api:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: deapc_phpmyadmin
+    environment:
+        PMA_HOST: db
+        PMA_PORT: 3306
+    ports:
+        - 8061:80
