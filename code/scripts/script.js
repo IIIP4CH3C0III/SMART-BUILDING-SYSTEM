@@ -128,6 +128,7 @@ function php_send_creedentials(username,password)
                   let response = xhr.responseText;
                   let responde_splited;
 
+                  alert(response);
                   if( response === "error_1" || response === "error_2" || response === "error_3" ) responde_splited = response.split(",");
 
                   if( responde_splited[0] === "success")

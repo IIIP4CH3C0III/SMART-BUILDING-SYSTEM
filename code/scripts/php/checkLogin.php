@@ -15,46 +15,24 @@
 	        'sbs',
 		);
 
-		//efetuar a conexão com a base de dados
-		if ( $connect->connect_error )
-			die( "error_1" );
-
 		// Nome da tabela de pesquisa
 		$table_name = "CLIENTS";
 
 		// Query de SQL para procurar pelo username
-		$query = "SELECT * FROM $table_name WHERE username = ?";
+		$query = "SELECT * FROM $table_name WHERE username = $username";
 
-		// Executar a query, evitando sql injection, e em result iremos obter o a linha correspondente senão null 
-		$stmt = $conn->prepare($query);
-		$stmt->bind_param("s", $username); //enviaremos por parametro o username por tipo string ("s"), 
-		$stmt->execute();
-		$result = $stmt->get_result();
+		// Pedido na base de dados
+		$response = mysqli_query($connect, $query);
 
+		//linha de resposta
+		$row = mysqli_fetch_assoc($response);
 
-		if( $result->num_rows > 0 )
-		{
-			$row = $result->fetch_assoc();
-			$stored_password = $row['PASSWORD'];
+        $name = $row['FULL_NAME'];  
+        $level = $row['LEVEL'];
+        $session_id = $row['ID_SESSON'];
 
-			/* Temporário */
-			$name = $row['FULL_NAME'];  
-			$level = $row['LEVEL'];
-			$session_id = $row['ID_SESSON'];
+        echo "success,${name},${level},${session_id}" ;
 
 
-			if($stored_password === $password)	//futuramente utilizar a função password_verify(enviada,guardada)
-				echo "success,${name},${level},${session_id}" ;
-			else
-				echo "error_2";
-		}
-		else
-			echo "error_2";
-		
-		$stmt->close();
-		$connect->close();
 	}
-
-
-
 ?>
