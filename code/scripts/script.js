@@ -126,22 +126,22 @@ function php_send_creedentials(username,password)
             {
                   //buscar a resposta do pedido
                   let response = xhr.responseText;
-                  let responde_splited;
+                  let response_splited;
 
                   alert(response);
-                  if( response != "error_1" || response != "error_2" ) responde_splited = response.split(",");
+                  if( response != "error_1" || response != "error_2" ) response_splited = response.split(",");
 
-                  if( responde_splited[0] === "success")
+                  if( response_splited[0] === "success")
                   {
-                        localStorage.setItem('user_name',responde_splited[1]);                        
-                        localStorage.setItem('user_level',responde_splited[2]); 
-                        localStorage.setItem('user_session_id',responde_splited[3]); 
+                        localStorage.setItem('user_name',response_splited[1]);                        
+                        localStorage.setItem('user_level',response_splited[2]); 
+                        localStorage.setItem('user_session_id',response_splited[3]); 
 
                         localStorage.setItem('page',2);
                         window.location.href = "home.php";
                         return true;
                   }
-                  if( responde_splited === "error_2" )
+                  if( response === "error_2" )
                   {
                         //Se errar na password ou o utilizador a indicação é dada ao utilizador
                         let element_error_message = document.getElementById("warning_message");
@@ -152,7 +152,7 @@ function php_send_creedentials(username,password)
 
                         return false;
                   }
-                  if( responde_splited === "error_1" )
+                  if( response === "error_1" )
                   {
                         let element_error_message = document.getElementById("warning_message");
                         element_error_message.innerHTML = "Conexão falhada.";
