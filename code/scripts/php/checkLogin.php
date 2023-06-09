@@ -10,7 +10,7 @@
 		// Definições da conexão á base de dados
 	    $MYSQL_SERVERNAME = 'db';
 	    $MYSQL_USERNAME = 'admin';
-	    $MYSQL_PASSWORD ='LaGcd62EpArSTt5B'
+	    $MYSQL_PASSWORD = 'LaGcd62EpArSTt5B';
 	    $MYSQL_DB = 'sbs';
 
 	    // Criar a conexão
