@@ -2,28 +2,28 @@ version: '3' #versão do docker
 services:
   website: #aplicação da web
     image: php:8.0-apache
-    container_name:  deapc_webserver  
+    container_name:  webserver #pode mudar o nome 
     restart: always
     ports:
-      - 8060:80
+      - 8060:80 #mudar 8060 para porta que quiser
     volumes: #pasta onde o website está gravado
-      - /home/pacheco/APPDATA/website-deapc/SMART-BUILDING-SYSTEM/code/:/var/www/html
+      -  path_to_code_folder :/var/www/html #muda aqui
   
   db:
-    image: mysql:5.7
-    container_name: deapc_database
+    image: mysql:5.7 
+    container_name: database #pode mudar o nome
     environment:
-      MYSQL_ROOT_PASSWORD: AQHajXCLpE2dqZVI
-      MYSQL_DATABASE: sbs
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: LaGcd62EpArSTt5B
+      MYSQL_ROOT_PASSWORD: password #mudar para mais segura
+      MYSQL_DATABASE: db #mudar
+      MYSQL_USER: user #mudar
+      MYSQL_PASSWORD: password #mudar para mais segura
     volumes:
-        - /home/pacheco/APPDATA/website-deapc/SMART-BUILDING-SYSTEM/code/database/data/:/docker-entrypoint-initdb.d
+        - ./database/data:/docker-entrypoint-initdb.d #sincronização da database
   api:
     image: phpmyadmin/phpmyadmin:latest
-    container_name: deapc_phpmyadmin
+    container_name: phpmyadmin #pode mudar o nome
     environment:
         PMA_HOST: db
         PMA_PORT: 3306
     ports:
-        - 8061:80
+        - 8061:80 #mudar 8061 para porta que quiser
