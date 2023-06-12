@@ -1,6 +1,6 @@
 <?php
 
-	//se receber um post! cmd : docker-php-ext-install mysqli
+	//se receber um post com fatal error correr este comando no container do webserver $docker-php-ext-install mysqli
 	if( $_SERVER['REQUEST_METHOD'] === 'POST' )
 	{
 		//capturar os dados enviados pelo javascript
@@ -40,17 +40,16 @@
 				die ("error_2");
 			}
 
-
 			$name = $row['FULL_NAME'];  
 	        $level = $row['LEVEL'];
 	        $session_id = $row['ID_SESSON'];
 
-	        echo "success,${name},${level},${session_id}" ;
+			$conn->close();
+	        die "success,${name},${level},${session_id}" ;
 
-		}		
-
+		}
 		$conn->close();
-
+		die ("error_2");		
 	}
 ?>
 

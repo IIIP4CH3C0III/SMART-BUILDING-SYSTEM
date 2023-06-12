@@ -162,7 +162,6 @@ function php_send_creedentials(username,password)
             }
       };
 
-
       //enviar a informação;
       let data = new FormData();
       data.append('username',username);
@@ -170,6 +169,36 @@ function php_send_creedentials(username,password)
 
       xhr.send(data);
 }
+
+function php_send_form(data)
+{
+      let xhr = new XMLHttpRequest(); //Criar o objeto que irá conter o XMLHttp
+
+      //method, url, async, user, password
+      //para este processo apenas utilizamos os primeiros 3
+      xhr.open('POST', 'scripts/php/createDATA.php', true); 
+      
+      //A forma de validar
+      xhr.onload = function()
+      {
+            if(xhr.status === 200) //Se for válido a comunicação
+            {
+                  //buscar a resposta do pedido
+                  let response = xhr.responseText;
+                  let response_splited;
+
+            }
+      };
+
+      xhr.send(data);
+}
+
+
+
+
+
+
+
 
 /* Função para registrar o ultimo logout efetuado e descartar a memória do browser */
 //TODO
@@ -679,8 +708,8 @@ function load_form(db)
       /* Formulário maker */
       let formulario = document.getElementById("form");
       
-      const campos_cliente_pt = ["ID","Nome","Contacto","Email","NIF","BI"];
-      const campos_dispositivo_pt = ["ID","Nome","Serial Number","Estado","Edificio","Andar","Divisão"];
+      const campos_cliente_pt = ["Nome","Contacto","Email","NIF","BI","Permissões","Quarto"];
+      const campos_dispositivo_pt = ["Nome","Serial Number","Quarto"];
 
       let length = 0;
       
@@ -774,12 +803,79 @@ function cancel_submission()
 function submit_submission()
 {
       if(confirm("Tem a certeza que pretende submeter o formulário?"))
-      {       
-            alert("submit");
+      {                   
+            //capturar os dados do formulário e verificar se eles são válidos TODO
+            let elements_inputs = document.getElementsByTagName('input');
+
+            if ( elements_inputs == null )
+                  return false;
+
+            let data = new FormData();
+            let flag_wrong_field = false ;
+
+            if( (localStorage.getItem('db_selection')) == 1 )
+                  //clientes : campos -> ["Nome","Contacto","Email","NIF","BI","Permissões","Quarto"]
+            {
+                  //capturar os valores
+                  for( let x = 0 ; x < elements_inputs.length ; x++ )
+                  {
+                        let field_value = elements_inputs[x].value;
+
+                        if( x == 0 && field_value.length <= 255 && hasSpecialCharacters(field_value) == false )  
+                              data.append( "FULL_NAME" , field_value );
+
+                        if( x == 1 && field_value.length <= 12 )
+                              data.append( "CONTACT" , field_value );
+
+                        if( x == 2 && field_value.length <= 255 )
+                              data.append( "EMAIL" , field_value );
+      
+                        if( x == 3 && field_value.length <= 9 )
+                              data.append( "NIF" , field_value );
+
+                        if( x == 4 && field_value.length <= 9 )
+                              data.append( "BI" , field_value );
+      
+                        if( x == 5 && field_value.length <= 4 )
+                              data.append( "LEVEL" , field_value );
+
+                        if( x == 6 && field_value.length <= 5 )
+                              data.append( "ROOM" , field_value );
+                  }
+
+                  //verificar se existem valores com erros
+
+                  for (let key in data[x])
+                  {
+                        if( data['key'] == null )
+                        {
+                              elements_inputs[x].style.border = "2px solid red";
+                              flag_wrong_field = true;
+                        }
+
+                  }
+
+                  data.append("TABLE","CLIENTS");
+                  
+                  if( flag_wrong_field == false ) 
+                  {
+                        php_send_form(data);
+                        return true;
+                  }     
+                  
+                  return false;
+            }
+
+            if( (localStorage.getItem('db_selection')) == 2 )
+                  //dispositivos : campos -> ["Nome","Serial Number","Quarto"];
+
+
             localStorage.setItem('page',3);
             window.location.href = "db.php";
+
+
             return true;
-      }
+      }let key
       return false;
 }
 
