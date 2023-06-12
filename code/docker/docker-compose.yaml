@@ -3,11 +3,12 @@ services:
   website: #aplicação da web
     image: php:8.0-apache
     container_name:  webserver #pode mudar o nome 
+    build: #executar um comando depois de inicializar o container
+      context: .
+      dockerfile: path_to/Dockerfile
     restart: always
     ports:
       - 8060:80 #mudar 8060 para porta que quiser
-    entrypoint: #executar comandos automaticamente ao ligar container 
-      - path_to_entrypoint/entrypoint.sh
     volumes: #pasta onde o website está gravado
       -  path_to_code_folder :/var/www/html #muda aqui
   
