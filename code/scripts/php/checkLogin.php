@@ -45,7 +45,7 @@
 	        $session_id = $row['ID_SESSON'];
 
 			$conn->close();
-	        die "success,${name},${level},${session_id}" ;
+	        die ("success,${name},${level},${session_id}") ;
 
 		}
 		$conn->close();
