@@ -1,5 +1,11 @@
 <?php
 
+/*
+ * Após o utilizador preencher os formulários presentes na adição pra a base de dados, será enviado a informação para o php
+ * Onde apenas será compilada numa query e enviada pra base de dados. (Não é a prova de sql injection)
+ */
+
+
 	//se receber um post com fatal error correr este comando no container do webserver $docker-php-ext-install mysqli
 	if( $_SERVER['REQUEST_METHOD'] === 'POST' )
 	{	

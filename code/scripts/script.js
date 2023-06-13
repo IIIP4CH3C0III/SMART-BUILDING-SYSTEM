@@ -845,14 +845,17 @@ function submit_submission()
 
                   //verificar se existem valores com erros
 
-                  for (let key in data[x])
+                  for( let x = 0 ; x < data.length ; x++ )
                   {
-                        if( data['key'] == null )
+                        for (let key in data[x])
                         {
-                              elements_inputs[x].style.border = "2px solid red";
-                              flag_wrong_field = true;
-                        }
+                              if( data['key'] == null )
+                              {
+                                    elements_inputs[x].style.border = "2px solid red";
+                                    flag_wrong_field = true;
+                              }
 
+                        }
                   }
 
                   data.append("TABLE","CLIENTS");

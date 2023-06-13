@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * Após o utilizador preencher o login, será enviado para o php o utilizador e password, onde será verificado se é 
+ * compátivel com algum user.
+ * Opções de return:
+ * -> sucess,nome,nivel,session_id
+ * -> erro_1 significa erro na conexão à base de dados
+ * -> erro_2 significa erro no user ou passcode
+ */
+
+
 	//se receber um post com fatal error correr este comando no container do webserver $docker-php-ext-install mysqli
 	if( $_SERVER['REQUEST_METHOD'] === 'POST' )
 	{
