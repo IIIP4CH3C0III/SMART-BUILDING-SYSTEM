@@ -29,8 +29,9 @@
         // Definir a timezone
         date_default_timezone_set('Europe/Lisbon');
 
-        // O formato da data e variavél em si
-        $date = date('H:i:s d-m-Y');
+        // O formato da data e variavél data
+        $date = date('Y-m-d H:i:s');
+
 
         // Query de SQL para procurar pelo username
         $sql = "UPDATE $table_name SET LAST_LOGOUT = '$date' WHERE ID_SESSON = '$given_ID'";
@@ -48,5 +49,6 @@
             $conn->close();
             die ("error_3");
         }
+
     }
 ?>
