@@ -170,13 +170,13 @@ function php_send_creedentials(username,password)
       xhr.send(data);
 }
 
-function php_send_form(data)
+function php_send_form(data,path)
 {
       let xhr = new XMLHttpRequest(); //Criar o objeto que irá conter o XMLHttp
 
       //method, url, async, user, password
       //para este processo apenas utilizamos os primeiros 3
-      xhr.open('POST', 'scripts/php/createDATA.php', true); 
+      xhr.open('POST', path, true); 
       
       //A forma de validar
       xhr.onload = function()
@@ -201,11 +201,18 @@ function php_send_form(data)
 
 
 /* Função para registrar o ultimo logout efetuado e descartar a memória do browser */
-//TODO
 function f_last_logout()
 {
-      //efetuar comunicação
       //enviar data atual
+      let session_id = localStorage.getItem('user_session_id');
+      let data = new FormData;
+      data.append('ID',session_id);
+
+      //caminho pra o ficheiro
+      let php_path = "scripts/php/lastLogout.php";
+
+
+      php_send_form(data,php_path);
 
       //descartar memória 
       localStorage.setItem('page',1);
@@ -891,7 +898,8 @@ function submit_submission()
 
             if( flag_wrong_field == false ) 
             {
-                  php_send_form(data);
+                  path = 'scripts/php/createDATA.php';
+                  php_send_form(data,path);
                   localStorage.setItem('page',3);
                   window.location.href = "db.php";
                   return true;
