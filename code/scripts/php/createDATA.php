@@ -61,7 +61,31 @@
 		
 		if( $table_name === 'DEVICES' )
 		{
-			//TODO
+			$fields = "ID_DEVICE,NAME,SERIALNUMBER,OUTPUT,STATE,ROOM,LAST_UPDATE,LEVEL ";
+
+			$given_name = $_POST['FULL_NAME'];
+			$given_serial = $_POST['SERIALNUMBER'];
+			$given_room = $_POST['ROOM'];
+
+			$values = "Null," . $give_name . "," . $given_serial . ",Null,Null," . $given_room . "Null,Null" ;
+
+			// Query de SQL para procurar pelo username
+			$sql = "INSERT INTO $table_name ($fields) VALUES ($values); ";
+
+			// Pedido na base de dados, com sua resposta em result
+			$result = $conn->query($sql);
+
+			if ( $result ) 
+			{ //sucesso na inserção dos dados
+				$conn->close();
+				die ("sucess");
+			} 
+			else 
+			{ //erro na inserção dos dados
+				$conn->close();
+				die ("error_3");
+			}
+
 		}
 
 	}

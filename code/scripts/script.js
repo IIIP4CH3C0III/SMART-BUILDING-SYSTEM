@@ -844,41 +844,62 @@ function submit_submission()
                   }
 
                   //verificar se existem valores com erros
-
-                  for( let x = 0 ; x < data.length ; x++ )
+                  for (let key in data[0])
                   {
-                        for (let key in data[x])
+                        if( data['key'] == null )
                         {
-                              if( data['key'] == null )
-                              {
-                                    elements_inputs[x].style.border = "2px solid red";
-                                    flag_wrong_field = true;
-                              }
-
+                              elements_inputs[x].style.border = "2px solid red";
+                              flag_wrong_field = true;
                         }
-                  }
 
+                  }
                   data.append("TABLE","CLIENTS");
-                  
-                  if( flag_wrong_field == false ) 
-                  {
-                        php_send_form(data);
-                        return true;
-                  }     
-                  
-                  return false;
             }
 
             if( (localStorage.getItem('db_selection')) == 2 )
                   //dispositivos : campos -> ["Nome","Serial Number","Quarto"];
+            {
+                  //capturar os valores
+                  for( let x = 0 ; x < elements_inputs.length ; x++ )
+                  {
+                        let field_value = elements_inputs[x].value;
+
+                        if( x == 0 && field_value.length <= 255 && hasSpecialCharacters(field_value) == false )  
+                              data.append( "FULL_NAME" , field_value );
+
+                        if( x == 1 && field_value.length <= 32 )
+                              data.append( "SERIALNUMBER" , field_value );
+
+                        if( x == 2 && field_value.length <= 5 )
+                              data.append( "ROOM" , field_value );     
+                  }
+
+                  //verificar se existem valores com erros, varrendo o objeto data, e utilizando suas keys presentes
+                  for (let key in data[0])
+                  {
+                        if( data['key'] == null )
+                        {
+                              elements_inputs[x].style.border = "2px solid red";
+                              flag_wrong_field = true;
+                        }
+
+                  }
+
+                  data.append("TABLE","DEVICES");
+            }
 
 
-            localStorage.setItem('page',3);
-            window.location.href = "db.php";
+            if( flag_wrong_field == false ) 
+            {
+                  php_send_form(data);
+                  localStorage.setItem('page',3);
+                  window.location.href = "db.php";
+                  return true;
+            }     
+            
+            return false;
+      }
 
-
-            return true;
-      }let key
       return false;
 }
 
