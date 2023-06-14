@@ -100,7 +100,7 @@
 			else 
 			{ //erro na inserção dos dados
 				$conn->close();
-				die ("error_3");
+				die ("error_3," . $conn->error );
 			}
 
 		}

@@ -185,9 +185,16 @@ function php_send_form(data,path)
             {
                   //buscar a resposta do pedido
                   let response = xhr.responseText;
-                  let response_splited;
+                  let response_splited = response.split(",");
+
+                  if( response == "sucess" )
+                        console.log("sucess");
+                  if( response == "error_3" )
+                        console.log("")
 
             }
+
+
       };
 
       xhr.send(data);
