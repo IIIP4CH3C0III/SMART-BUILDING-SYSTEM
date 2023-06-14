@@ -1,0 +1,718 @@
+commit 27776a91dbc348adf240a00702baa7aca351d1f3
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 14 14:07:39 2023 +0100
+
+    Versão de entrega
+
+commit d1857fa072fcf9906f96ab1922dc318f2536d5ac
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 14 13:33:37 2023 +0100
+
+    Styles update
+
+commit 8aa0bdf0c5e8b29d83d8f5d667a86db6ce98600f
+Merge: 3810501 d6268ed
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 14 13:02:22 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit 38105011b2bffb20cbec9ed1deeb08a75a2bf3d6
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 14 13:01:56 2023 +0100
+
+    Teste
+
+commit d6268edb414cff58e59ef6586386cdd1ebbb3aff
+Merge: d78fdfe ed8eda9
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed Jun 14 12:30:41 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit d78fdfeaab0b11b879b24890205e34b475ca03ac
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed Jun 14 12:30:38 2023 +0100
+
+    stories PHP
+    
+    criado ficheiro da documentação do PHP da aplicação web
+
+commit ed8eda91db29b29c66ad358192a28242d0604a22
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 14 12:27:34 2023 +0100
+
+    Update db
+
+commit 4af901e9a0841353ff6a12285288be87283e4a40
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 14 12:21:29 2023 +0100
+
+    Update db
+
+commit 4d6680f4f039ab94f210e51c7eaca2dab2518664
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 14 11:53:42 2023 +0100
+
+    Update no ficheiro createDATA
+
+commit 2e606a09db4dc46f4482561bbe5e8b2f4584c0ac
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Tue Jun 13 17:35:12 2023 +0100
+
+    Update syntax-errors
+
+commit 0dfda96f4405eadd3dd5f0f9613b5b4d81df9dc6
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Tue Jun 13 16:46:11 2023 +0100
+
+    Possibilidade de obter o lastlogout e update para a mesma função no js
+
+commit 2d97f0de7501f39dcf5cd5ff3d62f5b2c950b71c
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Tue Jun 13 10:57:44 2023 +0100
+
+    update php e js para poder receber o formulário de devices
+
+commit b30458d567469f250058fdfb04d71453a37aeebe
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Tue Jun 13 10:28:17 2023 +0100
+
+     Comentar código e corrigir erro no script pra enviar dados de formulário
+
+commit 42e8aa2a52205986d31669e673a73d55c1271ef3
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Tue Jun 13 00:38:51 2023 +0100
+
+    update_php
+
+commit 317d09f6fcbded527126ada00445c329fbe817bf
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Tue Jun 13 00:28:47 2023 +0100
+
+    update
+
+commit 941ce6435ba443fc71e0ef4b17770d93dc7ddabb
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Tue Jun 13 00:14:19 2023 +0100
+
+    Update docker
+
+commit 3ced2c660e230a0ed7a1eafc4865f6217c58c803
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Tue Jun 13 00:02:21 2023 +0100
+
+    Update docker-compose.yaml
+
+commit 2635653afd548989b87dabd5c4a1500ec5b3e3d3
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Tue Jun 13 00:01:19 2023 +0100
+
+    Create entrypoint.sh
+    
+    Ficheiro adicional para o docker para conseguir correr o site com conexão com a base de dados
+
+commit 3659b9fad43440d534d189972fe4ab31d9e21731
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Mon Jun 12 23:54:49 2023 +0100
+
+    Update checkLogin.php
+
+commit 3caf2d93aa7a8dec1b9476350e334a6c12206d7b
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Mon Jun 12 23:49:11 2023 +0100
+
+    Adicionar um item na base de dados
+
+commit 85b13b454b1b8ebedd24f245da1f5c14bb203b50
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Sun Jun 11 18:33:20 2023 +0100
+
+    mudanças no docker compose
+
+commit fc79c35db1476ffe559a286c5f8e81c4b4194571
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Fri Jun 9 02:14:22 2023 +0100
+
+    Test DB:0.06
+
+commit 1191e68199331c4bd3186b44211176f838c0e6a6
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Fri Jun 9 02:10:36 2023 +0100
+
+    Login feito de acordo com os dados presentes na base de dados git add -A git add -A
+
+commit 47419e53a44af029a4c22f6d24c9ac6697a17412
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Fri Jun 9 01:52:11 2023 +0100
+
+    Test DB V0.04
+
+commit 7a05726e82587689b1a3ec894281ddd3f29642ad
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Fri Jun 9 01:48:06 2023 +0100
+
+    Test DB V0.03
+
+commit e54c856128dc9552de9c1ce6de6c073e21fa64fe
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Thu Jun 8 23:57:21 2023 +0100
+
+    Teste DB V0.02
+
+commit 862af1fa2e2b5caccf8127b5314d90a1c49172f5
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Thu Jun 8 23:01:22 2023 +0100
+
+    Interligação com a base de dados e o login
+
+commit 328db55d69b9aaf90371c548b201dd74355aa6ad
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Thu Jun 8 18:20:14 2023 +0100
+
+    Incluir o ficheiro do docker e a databasegit add -A!
+
+commit 0f190be0699d8341982403f506e98562b542ff3a
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed Jun 7 13:37:28 2023 +0100
+
+    Adição do resumo das Anomealias no dashboard
+
+commit d1a1bf1a5cf47999e1f27a7ee36342b59106b796
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 7 12:47:25 2023 +0100
+
+    DB V0.1
+
+commit 0498bfe24c5032be3880087c645962dd29f48a88
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 7 12:44:00 2023 +0100
+
+    DB Version 1.0
+
+commit e5adf62729beaa852f7b6f1d9f486fb351bf4094
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 7 12:42:01 2023 +0100
+
+    Database version 0.1
+
+commit 7446e2ca86b1d869f2f6f1b514df96e4dfd6aecd
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 7 12:23:54 2023 +0100
+
+    Database check
+
+commit d0d35e149ba0452918831e1e5ce10e518bb02c8b
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed Jun 7 11:02:09 2023 +0100
+
+    Criação de um modelo mobile
+
+commit 50f31f3699f7f65c23f1d24f33dccc8331c6abe5
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Sun Jun 4 22:26:46 2023 +0100
+
+    Correção no codigo js, no reload button
+
+commit eb0fa3fcc0e5d1cf45b61e71687112d4039a0591
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Sun Jun 4 22:08:15 2023 +0100
+
+    Mudanças feitas no style em termos de botões, e mudança de um valor no php file
+
+commit 36d4741c3ab9bf760067357171d282ea3e391a4b
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Sun Jun 4 21:56:54 2023 +0100
+
+    Efetuado comunicação com o backend, update no javascript com funcionalidades como, verificar o nome do user e o nível de direitos, obrigatoridade de login antes de entrar em qualquer página, criação de um script php para validar o user e a password
+
+commit 9f68d008a8eba11134f7799ee5357154e1b5e24a
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Sun Jun 4 13:56:09 2023 +0100
+
+    Possibilidade de alterar a base de dados e obter os dados atualizados com os headers a combinar, código mais comentado
+
+commit 121e66c7c854e03e82256961692dfe76324bf572
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Fri Jun 2 19:51:18 2023 +0100
+
+    Mudanças efetuados no js, em respetivo em relação as logs e db, e correção em erros tecnicos na execução da união das funcções load_table, adição também de cores representativas para as logs e por ultimo erros na login page
+
+commit d464e6a55601003ded6bf2a731326f10ccc33b29
+Merge: 5171512 4dcd19d
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 31 15:12:27 2023 +0100
+
+    Mudanças feitas no js, e commit final para a aula de dia 31/05/2023
+
+commit 4dcd19db92dbe699b9612b2299799499219114e4
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 31 15:05:34 2023 +0100
+
+    JSON
+    
+    mudanças js
+    adição ficheiro JSON
+
+commit 714207a8cc73f511f7fefc993c9cf9a0d7f3661f
+Merge: c5e3f0c 0e7bc49
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 31 14:03:12 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit c5e3f0cc57fe68f749fbd2741bc5f3ff07009fec
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 31 14:02:55 2023 +0100
+
+    JSON beta
+
+commit 0e7bc49daaa44eaffa021a6e854b24576f1f8e0e
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 31 14:02:06 2023 +0100
+
+    The true JavaParty
+    
+    O verdadeiro ficheiro
+
+commit 5171512c9b3f4ac87c78cc73fbd0fddcc9c7b091
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 31 13:57:21 2023 +0100
+
+    Feitos tweaks na tela de login, como confirmação de formulários, e aluns tweaks efetuados na parte do html e por fim adicionado uma variavel de cor para o css
+
+commit 57e1b841e9bab5866431e5be20dd6d184f3a5edb
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 31 13:57:07 2023 +0100
+
+    JavaParty
+    
+    Fusão das funcões de criação de tabelas para as páginas home, db e logs
+
+commit e198edb46647265399f12cf452981613147b3091
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Fri May 26 18:50:58 2023 +0100
+
+    Mudança no aspeto visual das logs, utilizando o js
+
+commit 9bdcd7dada385f467687a31d128b9f4f074f4a65
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 24 23:56:05 2023 +0100
+
+    Adição do Logo na login page e nas restantes páginas, bem como o redimensionamento da topbar, e uma pequena animação no logo
+
+commit f08896397cfb75d870177fde6ebb5abad178d8ee
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 24 20:20:48 2023 +0100
+
+    Passagem de html para php, mais algumas funcionalidades no js, como a utilização do js storage from browser, criado o ficheiro header e topbar para simplificar o codigo das paginas, versão atual pronta para receber alguns dados de php para testarmos efeciencia, necessário finalizar a página de LOGS e DASHBOARD, caso pretendam visualizar as páginas tem que iniciar o webserver visto que agora está em php
+
+commit a1dde8244d4693599792e7681d0be4786f109da5
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 24 13:48:58 2023 +0100
+
+    Update do home e da log
+    
+    Correção da tabela da pagina log e adição ao resumo das logs na pagina home
+
+commit 220f34fe7e7a0ebbe1add657b74c0bc49e5a2015
+Merge: 8876d7b 27acf7c
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 24 13:48:02 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit 8876d7beaf20b0f8206bbf9b2f50d969b3c91ce9
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 24 13:47:36 2023 +0100
+
+    Efetuado os ultimos tweaks no index.html, feita uma função de zoom em js, e algumas melhorias no styles.css
+
+commit 27acf7c9857a9593a3fe1393895c64c1904e263d
+Merge: e6241a2 ce26c56
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 24 12:21:51 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit ce26c568d00a2db8ae4294c5c29e271faa774134
+Merge: ecb75c7 2d52ea5
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 24 11:50:29 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit ecb75c70a6f0798f0370572f627189e8d5f2a9a2
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 24 11:50:07 2023 +0100
+
+    Uma pequena mudança
+
+commit 2d52ea552646ad5000a220b25d8b6f84a24f8dc9
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 24 11:44:51 2023 +0100
+
+    Update styles.css
+    
+    Centrado!!!!!!!
+
+commit 5f404e39bd2ca1cb0a53447dfececa79a26df178
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 24 11:24:46 2023 +0100
+
+    Update styles.css
+    
+    Mudanças de ontem
+
+commit 26e75cad8f354a2523d77dd515b84232235bf31e
+Merge: 08f9f5f 573bd50
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 24 00:37:46 2023 +0100
+
+    Todas as páginas conectadas, necessários efetuar os tweaks, comentar o codigo, simplificar o js
+
+commit 08f9f5fcfe260ce601ae021867da5a8500f65286
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 24 00:13:23 2023 +0100
+
+    Mais alguns tweaks, como maior decomentação
+
+commit e6241a21ad54f05a18f886cc13887a8a918946ed
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Tue May 23 19:53:20 2023 +0100
+
+    log page atualizada
+    
+    página dos logs mais funcional, falta ver "bugs"
+
+commit 573bd5069fa2993017a0c7f5365b34ccd61765ab
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Tue May 23 15:10:11 2023 +0100
+
+    delete index.html
+    
+    eliminada a versão antiga do index.html
+
+commit 168e50ccade7f1b859391eb9c4bbe0bbac51e8ea
+Merge: c3a1002 2c0e0a7
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Tue May 23 15:08:31 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit c3a1002fb25a0db64d539b0813f5f13ff2d3f9ba
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Tue May 23 15:08:27 2023 +0100
+
+    logs page
+    
+    falta alterar o js para a tabela da página de logs
+
+commit 2c0e0a7e26bfedd1feacb843dcc644d2f72f7ae6
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Mon May 22 22:53:36 2023 +0100
+
+    Login V0.1
+    
+    Adicionada a pagina login e os codigos css necessarios para funcionar minimamente
+
+commit d809293f4e498780594af3a6842c2cade5b3982d
+Merge: 9376e67 b068020
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Mon May 22 11:43:30 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit 9376e676f908520469039714d24fcc82db13b63a
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Mon May 22 11:42:03 2023 +0100
+
+    eliminei ficheiros que não tinham uso
+
+commit e88bca1538009ed267ba9abce4208b31c0c88de5
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Mon May 22 11:23:44 2023 +0100
+
+    tentativa de dashboard
+
+commit b068020d2165c234af98ce7653ba98109ea265d5
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Mon May 22 00:27:30 2023 +0100
+
+    Adicionada página de formulário com stlye para dispostivo e cliente, alguns tweaks feitos na página da db.
+
+commit 5857af89da4569681f6b268a3c576f069ce01f0e
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Sun May 21 14:58:17 2023 +0100
+
+    db.html
+
+commit 66350da9bc1f3a41d3cf7b8f4283431ca71d83ff
+Author: IIIP4CH3C0III <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 17 17:04:25 2023 +0100
+
+    Monitorizador->Monitor
+
+commit 98f8596fe01cf3b8afe417babb26e3422a91cadd
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 17 13:59:00 2023 +0100
+
+    Icons
+
+commit 5b9dfbaef0cb9f1e92c5bc6efdf28c2e1407d9d2
+Merge: 52ba254 44b46e1
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 17 12:43:26 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit 52ba2540bf4f5377ab86462bc6daddcc37d37691
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 17 12:42:10 2023 +0100
+
+    Conclusão especificação
+
+commit 44b46e186c9978d71ca1a2e0bbdf48477d957d24
+Merge: eb6d190 06e8339
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 17 12:25:43 2023 +0100
+
+    Trabalho atruibuido v2
+
+commit eb6d190b9270bc5a99d3048a6377434fee0f325a
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 17 12:16:57 2023 +0100
+
+    Trabalhos atribuidos
+
+commit 06e8339268d9100eb318149b1ca2b6c4a883cdce
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 17 12:08:13 2023 +0100
+
+    deleted especificação antiga
+
+commit 3e92b8827b618beec6ec424fdaa9d10fdef8c711
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 17 06:38:05 2023 +0100
+
+    Especificação
+    
+    Por ser revista na aula de 17-05
+
+commit 48bc4dbe292554ca703ebacf5cd8817832f43afe
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Tue May 16 15:50:41 2023 +0100
+
+    alteração especificação
+    
+    criei um novo ficheiro da especificação e provavelmente vou eliminar o antigo
+
+commit bc3157c43ec126501ee24e80936ec456df79ea9a
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Mon May 15 09:26:02 2023 +0100
+
+    Mudança no layout
+
+commit 6d6d35c85ea6175ca5de6543a476ef53ee740682
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Sat May 13 18:09:28 2023 +0100
+
+    Update CODE-NAMES.md
+
+commit 3282fe4413f7773ef27f01b35cbfcf69e8209ef3
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Sat May 13 14:20:32 2023 +0100
+
+    Mudei o grau de valor de gestor de eventos
+
+commit c74ae02211a709a3b022984d2f46c47d3c69f6b0
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Sat May 13 14:19:43 2023 +0100
+
+    Update and rename CODE-NAMES.md to CODE-NAMES.mdi
+
+commit 5fef859b2f4ababdda4e3fe765bafaf3477ac3f4
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Fri May 12 18:13:46 2023 +0100
+
+    Create CODE-NAMES.md
+    
+    As tarefas para cada membro do grupo poderão ser propostas de acordo com esta lista.
+
+commit ad40c298353f2e16df7d6acddc22b65650e33b75
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Fri May 12 17:35:27 2023 +0100
+
+    Delete stories.txt
+
+commit 016376171bca57c1bc420c0aae04fdfb527496a9
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Fri May 12 17:35:02 2023 +0100
+
+    Delete STORIES.xlsx
+
+commit 5732a9ad272f2372211e70e37d870b86deaae45a
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Fri May 12 17:34:40 2023 +0100
+
+    Delete ~$pecificação.docx
+
+commit 2365eb19a961384134cdf432a0fda9ab67cb35c6
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Thu May 11 21:44:13 2023 +0100
+
+    ~especificação
+    
+    começo wireframes
+
+commit d1e8df8fe6f45fc675f8b779ddb18325c0dc3915
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Tue May 9 11:49:17 2023 +0100
+
+    Add files via upload
+
+commit c5db5ecc0f927a0341766808b548006584507977
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Tue May 9 11:30:52 2023 +0100
+
+    Update stories.txt
+
+commit 586a3bd3e112c827e0fdfc300f8151cac107c1bb
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Tue May 9 11:19:54 2023 +0100
+
+    Create stories.txt
+    
+    Descrição breve das stories
+
+commit 8bfd75bd08756ce94cc9f2c80a3ced21568be631
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Fri May 5 19:55:03 2023 +0100
+
+    Update grupo.txt
+
+commit f411037cbb1c99a1feae89d79f0f7ab5ef3db593
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Fri May 5 19:49:17 2023 +0100
+
+    Update README.md
+
+commit 2dc499b6cbc08b83a3fe77a9d22a771c224542b3
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Fri May 5 15:45:55 2023 +0100
+
+    Update README.md
+
+commit a7b58a2369a0677864b6fa2cd3a3007d4081e7ec
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Fri May 5 15:10:49 2023 +0100
+
+    Update README.md
+
+commit 9afd6014bc173ccfd2dc7de2f1326f5335366965
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Thu May 4 23:16:11 2023 +0100
+
+    Update grupo.txt
+
+commit 11cea02f7cbe2d7d01e248000426c35d5f29eb81
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Thu May 4 23:14:09 2023 +0100
+
+    Resolução do exercicio : 2_1_a
+
+commit a5f00e46685ce025df179cfbcf3014d54d791946
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Thu May 4 22:11:45 2023 +0100
+
+    Update README.md
+
+commit 2d40c3ab8e2c182f6472c3825e72e56d49e96474
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 3 14:05:54 2023 +0100
+
+    Ficheiro base do trabalho. v2
+
+commit d45bdcd32682e55b9e480184238cc017e124bb8a
+Merge: 672ee9f af9adf1
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 3 14:02:00 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit 672ee9f5657090ea79af49c188c3a01602ed52e2
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 3 14:00:30 2023 +0100
+
+    Ficheiro base do trabalho.
+
+commit af9adf1caea702872538cd8fbdd8abaae6c43458
+Author: KroneRParadox <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 3 13:44:10 2023 +0100
+
+    Update README.md
+
+commit 412f0acf42abefc284eab2670fdfe415ed416ef2
+Author: KroneRParadox <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 3 13:43:52 2023 +0100
+
+    Update README.md
+
+commit d43a436ed0b01225c925a6495da4692185e49e12
+Merge: 2443813 5d188ca
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 3 13:41:13 2023 +0100
+
+    Merge branch 'main' of https://github.com/IIIP4CH3C0III/SMART-BUILDING-SYSTEM
+
+commit 244381306ca7dd46671e4a949f8a95ba1735f8be
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 3 13:37:11 2023 +0100
+
+    Update README.md
+    
+    My name
+
+commit 039a2e5e816da24b6c88010b75167b21d4b0f5aa
+Author: p4ch3c0 <pacheco.castro.fabio@gmail.com>
+Date:   Wed May 3 13:36:27 2023 +0100
+
+    Names1
+
+commit 5d188ca24906150dcd5ec7ccb904d406dbf2d928
+Author: 4mmc2001 <mcanastro1@gmail.com>
+Date:   Wed May 3 13:36:24 2023 +0100
+
+    Update README.md
+
+commit c62716efbdf80b69e17f14673d5b28771aa87f5c
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 3 13:14:40 2023 +0100
+
+    Update README.md
+
+commit 1b052a53f718316873b6c75deb6345d9adbea5b1
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 3 13:14:05 2023 +0100
+
+    Update README.md
+
+commit dbc9c1a5eb55d82b941b08b6aba60ab80612bdf2
+Author: Ricardo <61656702+Ricardo-Au@users.noreply.github.com>
+Date:   Wed May 3 13:13:47 2023 +0100
+
+    Update README.md
+
+commit 4abbfbc97cd040c067f5b47caf957142cb6daa50
+Author: 4mmc2001 <121088366+4mmc2001@users.noreply.github.com>
+Date:   Wed May 3 13:12:45 2023 +0100
+
+    Update README.md
+    
+    adicionei uma adição
+
+commit db260fc3464dc7a21d930b240a992b179a92ebc1
+Author: IIIP4CH3C0III <101566362+IIIP4CH3C0III@users.noreply.github.com>
+Date:   Wed May 3 13:05:41 2023 +0100
+
+    Initial commit
