@@ -101,7 +101,6 @@ function default_values()
 
 //    light/dark theme
 
-// Comentário
 
 
 
@@ -190,7 +189,7 @@ function php_send_form(data,path)
                   if( response == "sucess" )
                         console.log("sucess");
                   if( response == "error_3" )
-                        console.log("")
+                        console.log(response_splited[1]);
 
             }
 

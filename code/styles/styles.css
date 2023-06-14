@@ -38,7 +38,7 @@ body
 
 /* Apenas para telas grandes */
 
-@media screen and (min-width:768px)
+@media screen and (min-width:60px)
 {
 
   /*
@@ -364,7 +364,7 @@ body
 
 /* Apenas para telas pequenas, atualmente sem qualquer configuração */
 
-@media screen and (max-width:768px)
+@media screen and (max-width: 50px)
 {
   /*TODO*/
 
