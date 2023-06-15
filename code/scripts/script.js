@@ -193,7 +193,7 @@ function php_send_form(data,path)
 
             }
 
-
+           console.log("hi");
       };
 
       xhr.send(data);
